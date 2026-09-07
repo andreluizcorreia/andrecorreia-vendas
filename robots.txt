@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /obrigado
+Disallow: /checkout-sucesso
+
+# Bloqueio de Scrapers Agressivos de Treinamento de IA
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://andrecorreia01.com.br/sitemap.xml
