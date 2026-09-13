@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog & Recursos Estratégicos | André Correia — IA & Negócios em Portugal</title>
+  <!-- ============================================== -->
+  <!-- RASTREAMENTO OFICIAL: GTM, PIXELS & ANALYTICS  -->
+  <!-- ============================================== -->
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M85CFPCR');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMHVR96BK0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZMHVR96BK0', { 'anonymize_ip': true });
+  </script>
+
+  <!-- Meta Pixel (Facebook & Instagram) -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4561990923947515');
+    fbq('track', 'PageView');
+  </script>
+
+  <!-- TikTok Pixel -->
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+      var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+      ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+      ttq.load('DAATUBBC77UES974B8VG');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "y3j0otxoq6");
+  </script>
+
+  <!-- Disparo Automático de Conversão ao Clicar no WhatsApp -->
+  <script>
+    document.addEventListener('click', function(e) {
+      var target = e.target.closest('a');
+      if (target && target.href && (target.href.includes('wa.me') || target.href.includes('whatsapp.com'))) {
+        if (window.fbq) {
+          fbq('track', 'Contact', { content_name: 'Clique WhatsApp Blog André Correia' });
+          fbq('track', 'Lead', { content_name: 'Lead WhatsApp Portugal' });
+        }
+        if (window.ttq) {
+          ttq.track('Contact', { content_name: 'Clique WhatsApp Blog André Correia' });
+        }
+      }
+    });
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .article-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+    }
+    .article-card:hover {
+      transform: translateY(-4px);
+      border-color: #10b981;
+      box-shadow: 0 15px 30px -10px rgba(16, 185, 129, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M85CFPCR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Meta Pixel (noscript) -->
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=4561990923947515&ev=PageView&noscript=1"
+  alt="" /></noscript>
+
+  <!-- BARRA DE TOPO AVISO -->
+  <div class="bg-slate-900 text-white text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+    <span>Dicas Práticas de Negócios & IA para Pequenas e Médias Empresas em Portugal</span>
+  </div>
+
+  <!-- NAVEGAÇÃO -->
+  <header class="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 min-w-0 group">
+        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-emerald-600 shadow-sm shrink-0 group-hover:scale-105 transition-transform">
+          <img src="andre_perfil.jpg" alt="André Correia" class="w-full h-full object-cover" />
+        </div>
+        <div class="min-w-0">
+          <span class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 whitespace-nowrap block">André Correia<span class="text-emerald-600">.</span></span>
+          <span class="hidden sm:block text-[11px] font-semibold text-emerald-700 tracking-wide uppercase whitespace-nowrap">Soluções Digitais & IA</span>
+        </div>
+      </a>
+      
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+        <a href="index.html#servicos" class="hover:text-emerald-600 transition-colors">Serviços</a>
+        <a href="index.html#demonstracao" class="hover:text-emerald-600 transition-colors">Simulador IA</a>
+        <a href="index.html#como-funciona" class="hover:text-emerald-600 transition-colors">Como Funciona</a>
+        <a href="index.html#sobre" class="hover:text-emerald-600 transition-colors">Sobre Mim</a>
+        <a href="blog.html" class="text-emerald-600 font-bold border-b-2 border-emerald-600 pb-1">Blog Oficial</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-xs sm:text-sm font-bold text-slate-600 hover:text-emerald-600 transition-colors sm:hidden">
+          ← Início
+        </a>
+        <a href="https://wa.me/351933303995?text=Ol%C3%A1%20Andr%C3%A9,%20estive%20a%20ler%20o%20seu%20blog%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida" 
+           target="_blank" 
+           class="shrink-0 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-md shadow-emerald-600/20 hover:shadow-lg transition-all hover:-translate-y-0.5">
+          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span class="hidden sm:inline">Falar no WhatsApp</span>
+          <span class="sm:hidden">WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO DO BLOG -->
+  <section class="pt-14 pb-12 sm:pt-20 sm:pb-16 bg-gradient-to-b from-white via-slate-50 to-slate-50 border-b border-slate-200/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <span class="text-xs font-extrabold text-emerald-700 uppercase tracking-widest bg-emerald-100 px-3.5 py-1.5 rounded-full">
+        Conhecimento Prático & Resultados Reais
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-4 mb-4">
+        Estratégias de IA & Modernização Digital para Empresas em Portugal
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+        Sem termos técnicos confusos. Aprenda como pequenos e médios negócios em Setúbal, Lisboa e em todo o país usam automação e inteligência artificial para atender mais depressa e faturar mais.
+      </p>
+
+      <!-- Atalho para o Portal Completo de Artigos -->
+      <div class="mt-8 flex items-center justify-center gap-3">
+        <a href="https://blog.andrecorreia01.com.br" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-sm transition-all hover:-translate-y-0.5">
+          <span>Aceder ao Portal Astro com Áudios & Podcasts</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTROS DE CATEGORIA -->
+  <section class="py-6 bg-white border-b border-slate-200 sticky top-16 sm:top-20 z-40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-xs font-bold">
+      <button onclick="filterPosts('todos')" class="cat-btn px-4 py-2 rounded-full bg-slate-900 text-white shadow-xs" data-cat="todos">Todos os Artigos</button>
+      <button onclick="filterPosts('whatsapp')" class="cat-btn px-4 py-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="whatsapp">💬 WhatsApp & Vendas</button>
+      <button onclick="filterPosts('voz')" class="cat-btn px-4 py-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="voz">🎙️ Voz & Atendente IA</button>
+      <button onclick="filterPosts('maps')" class="cat-btn px-4 py-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="maps">📍 Google Maps</button>
+      <button onclick="filterPosts('anuncios')" class="cat-btn px-4 py-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200" data-cat="anuncios">🎯 Tráfego & Anúncios</button>
+    </div>
+  </section>
+
+  <!-- GRID DE ARTIGOS -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="posts-grid">
+
+      <!-- ARTIGO 1: WHATSAPP -->
+      <article class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between article-card" data-category="whatsapp">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full">WhatsApp Business</span>
+            <span class="text-slate-400">⏱️ 4 min leitura</span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-emerald-600 transition-colors">
+            Por que as Empresas em Portugal Perdem 30% dos Clientes no WhatsApp
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+            Demorar mais de 15 minutos para responder a uma mensagem faz o cliente procurar o concorrente no Google Maps. Veja como a resposta em 1.8s muda o jogo da conversão.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+          <span class="text-slate-400">Guia Prático</span>
+          <a href="https://wa.me/351933303995?text=Ol%C3%A1%20Andr%C3%A9,%20li%20o%20artigo%20sobre%20o%20WhatsApp%20e%20quero%20aplicar%20no%20meu%20neg%C3%B3cio" 
+             target="_blank" 
+             class="font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
+            Aplicar no Meu Negócio →
+          </a>
+        </div>
+      </article>
+
+      <!-- ARTIGO 2: GOOGLE MAPS -->
+      <article class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between article-card" data-category="maps">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full">Google Maps</span>
+            <span class="text-slate-400">⏱️ 6 min leitura</span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-emerald-600 transition-colors">
+            O Guia Definitivo do Google Maps em 2026: Como Aparecer no Topo da Sua Cidade
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+            Os 3 fatores que o algoritmo do Google Perfil de Empresa mais valoriza: avaliações com palavras-chave locais, fotos semanais e velocidade de redirecionamento para o WhatsApp.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+          <span class="text-slate-400">Estratégia Local</span>
+          <a href="https://wa.me/351933303995?text=Ol%C3%A1%20Andr%C3%A9,%20gostaria%20de%20otimizar%20o%20meu%20Google%20Maps" 
+             target="_blank" 
+             class="font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1">
+            Otimizar o Meu Maps →
+          </a>
+        </div>
+      </article>
+
+      <!-- ARTIGO 3: ATENDENTE DE VOZ IA -->
+      <article class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between article-card" data-category="voz">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider bg-purple-100 text-purple-800 px-2.5 py-0.5 rounded-full">Voz & Telefone</span>
+            <span class="text-slate-400">⏱️ 5 min leitura</span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-emerald-600 transition-colors">
+            Atendente Telefónica com IA na Prática: Como Nunca Mais Perder Chamadas
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+            Em clínicas, oficinas, restaurantes e escritórios, o telefone toca quando a equipa está ocupada no balcão. A IA atende com voz natural em português e envia o resumo para o WhatsApp.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+          <span class="text-slate-400">Inovação</span>
+          <a href="https://wa.me/351933303995?text=Ol%C3%A1%20Andr%C3%A9,%20quero%20uma%20demonstra%C3%A7%C3%A3o%20da%20atendente%20de%20voz" 
+             target="_blank" 
+             class="font-bold text-purple-600 hover:text-purple-700 flex items-center gap-1">
+            Ouvir Demonstração →
+          </a>
+        </div>
+      </article>
+
+      <!-- ARTIGO 4: SOCIAL SELLING INSTAGRAM -->
+      <article class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between article-card" data-category="whatsapp">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider bg-pink-100 text-pink-800 px-2.5 py-0.5 rounded-full">Instagram Direct</span>
+            <span class="text-slate-400">⏱️ 4 min leitura</span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-emerald-600 transition-colors">
+            Como Transformar Comentários em Reels em Agendamentos no Piloto Automático
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+            O segredo do gatilho de comentário: quando uma pessoa comenta "PREÇO" ou "QUERO", a IA envia o catálogo e o cupão no Direct em menos de 2 segundos.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+          <span class="text-slate-400">Automação Social</span>
+          <a href="https://wa.me/351933303995?text=Ol%C3%A1%20Andr%C3%A9,%20quero%20automa%C3%A7%C3%A3o%20no%20meu%20Instagram" 
+             target="_blank" 
+             class="font-bold text-pink-600 hover:text-pink-700 flex items-center gap-1">
+            Ativar no Instagram →
+          </a>
+        </div>
+      </article>
+
+      <!-- ARTIGO 5: SITES RÁPIDOS -->
+      <article class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between article-card" data-category="anuncios">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">Velocidade Web</span>
+            <span class="text-slate-400">⏱️ 3 min leitura</span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-emerald-600 transition-colors">
+            Sites Rápidos vs. Lentos: O Impacto Real de 1 Segundo a Mais na Conversão
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+            Estudos da Google provam que cada segundo extra de espera no carregamento mobile derruba 20% das vendas. Por que páginas One-Page ultra-leves convertem 3x mais.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+          <span class="text-slate-400">Performance</span>
+          <a href="https://wa.me/351933303995?text=Ol%C3%A1%20Andr%C3%A9,%20quero%20um%20site%20moderno%20ultra-r%C3%A1pido" 
+             target="_blank" 
+             class="font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
+            Criar Site Rápido →
+          </a>
+        </div>
+      </article>
+
+      <!-- ARTIGO 6: ANÚNCIOS LOCAIS -->
+      <article class="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between article-card" data-category="anuncios">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider bg-teal-100 text-teal-800 px-2.5 py-0.5 rounded-full">Meta & Google Ads</span>
+            <span class="text-slate-400">⏱️ 5 min leitura</span>
+          </div>
+          <h2 class="text-lg font-bold text-slate-900 mb-2 leading-snug hover:text-emerald-600 transition-colors">
+            Meta Ads Local em Portugal: Como Pagar Menos de 2€ por Contacto Qualificado
+          </h2>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+            O método do raio geográfico inteligente (5 a 10 km da sua morada) combinado com oferta direta de boas-vindas para atrair clientes prontos a comprar hoje.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+          <span class="text-slate-400">Tráfego Pago</span>
+          <a href="https://wa.me/351933303995?text=Ol%C3%A1%20Andr%C3%A9,%20quero%20anunciar%20o%20meu%20neg%C3%B3cio%20localmente" 
+             target="_blank" 
+             class="font-bold text-teal-600 hover:text-teal-700 flex items-center gap-1">
+            Anunciar no WhatsApp →
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- BANNER DE CONEXÃO COM O PORTAL ASTRO -->
+    <div class="mt-14 bg-gradient-to-r from-slate-900 via-slate-900 to-emerald-950 text-white rounded-3xl p-8 sm:p-12 border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="max-w-xl text-center md:text-left">
+        <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-800/60">
+          🎙️ Áudios Neurais & Podcasts Oficiais
+        </span>
+        <h3 class="text-2xl sm:text-3xl font-extrabold mt-3 mb-2">
+          Quer Ouvir os Artigos em Formato Áudio?
+        </h3>
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          No nosso portal dedicado no Cloudflare Pages, todos os artigos possuem versão narrada por IA em alta fidelidade e vídeos explicativos para aprender enquanto conduz ou trabalha.
+        </p>
+      </div>
+      <a href="https://blog.andrecorreia01.com.br" target="_blank" rel="noopener noreferrer" 
+         class="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm shadow-lg shadow-emerald-500/20 transition-all hover:-translate-y-0.5">
+        <span>Visitar blog.andrecorreia01.com.br</span>
+        <span>→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="bg-slate-900 text-white border-t border-slate-800 py-12 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full overflow-hidden border border-emerald-500">
+          <img src="andre_perfil.jpg" alt="André Correia" class="w-full h-full object-cover" />
+        </div>
+        <p>© 2026 André Correia. Soluções Digitais & IA. Setúbal, Portugal.</p>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-6">
+        <a href="index.html" class="hover:text-emerald-400 transition-colors">Início</a>
+        <a href="index.html#servicos" class="hover:text-emerald-400 transition-colors">Serviços</a>
+        <a href="index.html#demonstracao" class="hover:text-emerald-400 transition-colors">Simulador</a>
+        <a href="termos-de-uso.html" class="hover:text-emerald-400 transition-colors">Termos de Uso</a>
+        <a href="politica-de-privacidade.html" class="hover:text-emerald-400 transition-colors">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterPosts(category) {
+      // Atualizar botões de filtro
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === category) {
+          btn.classList.add('bg-slate-900', 'text-white');
+          btn.classList.remove('bg-slate-100', 'text-slate-700');
+        } else {
+          btn.classList.remove('bg-slate-900', 'text-white');
+          btn.classList.add('bg-slate-100', 'text-slate-700');
+        }
+      });
+
+      // Filtrar os artigos
+      const articles = document.querySelectorAll('#posts-grid article');
+      articles.forEach(art => {
+        if (category === 'todos' || art.getAttribute('data-category') === category) {
+          art.classList.remove('hidden');
+        } else {
+          art.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
