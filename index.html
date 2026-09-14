@@ -409,6 +409,30 @@
           </a>
         </div>
 
+        <!-- CAIXA DE CAPTURA RÁPIDA (DEMONSTRAÇÃO POR E-MAIL COM BREVO) -->
+        <div class="mt-8 max-w-xl mx-auto bg-white/90 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-emerald-200/80 shadow-lg shadow-emerald-500/5">
+          <div class="text-center mb-3">
+            <p class="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-0.5">
+              ⚡ Prefere ver primeiro? Receba uma demonstração em vídeo
+            </p>
+            <p class="text-xs text-slate-500">
+              Vídeo de 60 segundos mostrando o Atendente de IA respondendo clientes no seu nicho.
+            </p>
+          </div>
+          <form id="lead-captura-form" class="flex flex-col sm:flex-row gap-2">
+            <input type="text" id="lead-name" placeholder="Seu nome ou empresa" required
+                   class="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 bg-slate-50/70" />
+            <input type="email" id="lead-email" placeholder="seu@email.com" required
+                   class="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 bg-slate-50/70" />
+            <button type="submit" id="lead-submit-btn"
+                    class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white text-xs font-bold tracking-wide transition-all shadow-sm whitespace-nowrap flex items-center justify-center gap-1.5 cursor-pointer">
+              <span>Receber Vídeo</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </form>
+          <div id="lead-status-msg" class="hidden text-center text-xs font-semibold mt-2.5"></div>
+        </div>
+
         <!-- GARANTIAS / DESTAQUES RÁPIDOS -->
         <div class="mt-14 pt-8 border-t border-slate-200/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div class="p-3">
@@ -1958,6 +1982,49 @@
           card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
           card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
         }, { passive: true });
+      });
+    })();
+
+    /* 4. Formulário de Captura Rápida com Brevo */
+    (function initLeadCapture() {
+      const form = document.getElementById('lead-captura-form');
+      if (!form) return;
+      const statusMsg = document.getElementById('lead-status-msg');
+      const submitBtn = document.getElementById('lead-submit-btn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('lead-name').value.trim();
+        const email = document.getElementById('lead-email').value.trim();
+        
+        submitBtn.disabled = true;
+        const originalBtnHtml = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Enviando...</span>';
+        statusMsg.classList.add('hidden');
+
+        try {
+          const res = await fetch('/api/captura', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, businessType: 'Negócio Local' })
+          });
+          const data = await res.json();
+          if (res.ok && data.success) {
+            statusMsg.className = 'text-center text-xs font-semibold mt-2.5 text-emerald-600';
+            statusMsg.textContent = '✅ ' + (data.message || 'Demonstração enviada! Verifique o seu e-mail.');
+            statusMsg.classList.remove('hidden');
+            form.reset();
+          } else {
+            throw new Error(data.error || 'Erro ao enviar.');
+          }
+        } catch (err) {
+          statusMsg.className = 'text-center text-xs font-semibold mt-2.5 text-red-500';
+          statusMsg.textContent = '⚠️ Ocorreu um erro ao enviar. Tente novamente ou chame no WhatsApp.';
+          statusMsg.classList.remove('hidden');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
       });
     })();
   </script>
