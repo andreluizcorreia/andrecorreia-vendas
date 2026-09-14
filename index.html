@@ -2029,5 +2029,335 @@
     })();
   </script>
 
+
+  <!-- ========================================== -->
+  <!-- ASSISTENTE VIRTUAL COM IA (TEXTO & VOZ)     -->
+  <!-- ========================================== -->
+  <div id="ai-chat-root" class="fixed bottom-5 right-5 z-50 font-sans">
+    
+    <!-- Botão Flutuante de Abertura (Launcher) -->
+    <button id="ai-chat-launcher" onclick="toggleAIChat()" 
+            class="flex items-center gap-2.5 px-4 py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-full shadow-2xl border border-emerald-500/40 hover:border-emerald-400 transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
+            aria-label="Falar com Assistente de IA">
+      <span class="relative flex h-3 w-3">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+      </span>
+      <span class="text-xs font-bold tracking-tight text-slate-100 group-hover:text-emerald-400 transition-colors">Tirar Dúvidas com IA</span>
+      <span class="text-base">🤖</span>
+    </button>
+
+    <!-- Janela do Chatbot de IA -->
+    <div id="ai-chat-box" class="hidden flex-col w-[360px] sm:w-[400px] h-[520px] max-h-[85vh] bg-slate-950/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300">
+      
+      <!-- Topo / Header da Janela -->
+      <div class="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-sm">
+            🤖
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-white leading-tight">Assistente André Correia</h4>
+            <span class="text-[10px] text-emerald-400 font-medium flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              IA Online • Resposta Instantânea
+            </span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1.5">
+          <!-- Toggle de Voz (TTS) -->
+          <button id="ai-voice-toggle" onclick="toggleAIVoice()" title="Voz da IA Ativada/Desativada"
+                  class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-emerald-400 flex items-center justify-center text-xs transition-colors cursor-pointer">
+            <span id="ai-voice-icon">🔊</span>
+          </button>
+          <!-- Botão Fechar -->
+          <button onclick="toggleAIChat()" title="Fechar Chat"
+                  class="w-7 h-7 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center text-xs transition-colors cursor-pointer">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Área de Mensagens -->
+      <div id="ai-messages-container" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs leading-relaxed">
+        
+        <!-- Mensagem Inicial da IA -->
+        <div class="flex items-start gap-2 max-w-[85%]">
+          <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-[11px] shrink-0 mt-0.5">
+            🤖
+          </div>
+          <div class="bg-slate-900 border border-slate-800 text-slate-200 rounded-2xl rounded-tl-sm p-3 shadow-xs">
+            <p>Olá! Sou a assistente com inteligência artificial de <strong>André Correia</strong> em Portugal 🇵🇹.</p>
+            <p class="mt-1 text-slate-400 text-[11px]">Como posso ajudar a modernizar o atendimento ou criar o website da sua empresa hoje?</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sugestões Rápidas (Chips) -->
+      <div class="px-3 py-1.5 bg-slate-900/60 border-t border-slate-800/80 flex items-center gap-1.5 overflow-x-auto no-scrollbar text-[11px]">
+        <button onclick="sendQuickPrompt('Quanto custa criar um site moderno?')" class="whitespace-nowrap px-2.5 py-1 bg-slate-800 hover:bg-emerald-950/60 hover:text-emerald-400 text-slate-300 rounded-full border border-slate-700 hover:border-emerald-600/50 transition-colors cursor-pointer">
+          ⚡ Preço do Site
+        </button>
+        <button onclick="sendQuickPrompt('Como funciona o atendimento de IA no WhatsApp?')" class="whitespace-nowrap px-2.5 py-1 bg-slate-800 hover:bg-emerald-950/60 hover:text-emerald-400 text-slate-300 rounded-full border border-slate-700 hover:border-emerald-600/50 transition-colors cursor-pointer">
+          🤖 IA no WhatsApp
+        </button>
+        <button onclick="sendQuickPrompt('Vocês atendem em Setúbal e Lisboa?')" class="whitespace-nowrap px-2.5 py-1 bg-slate-800 hover:bg-emerald-950/60 hover:text-emerald-400 text-slate-300 rounded-full border border-slate-700 hover:border-emerald-600/50 transition-colors cursor-pointer">
+          📍 Setúbal & Lisboa
+        </button>
+      </div>
+
+      <!-- Barra de Digitação & Microfone -->
+      <div class="p-3 bg-slate-900 border-t border-slate-800">
+        <form id="ai-chat-form" onsubmit="handleAIChatSubmit(event)" class="flex items-center gap-2">
+          
+          <!-- Botão Microfone (Web Speech Recognition) -->
+          <button type="button" id="ai-mic-btn" onclick="toggleSpeechRecognition()" title="Falar por voz (Microfone)"
+                  class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-emerald-400 flex items-center justify-center text-sm shrink-0 transition-all cursor-pointer">
+            <span id="ai-mic-icon">🎤</span>
+          </button>
+
+          <!-- Input de Texto -->
+          <input type="text" id="ai-user-input" placeholder="Escreva a sua dúvida..." 
+                 class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500 transition-colors" />
+
+          <!-- Botão Enviar -->
+          <button type="submit" id="ai-send-btn" title="Enviar mensagem"
+                  class="w-9 h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 transition-colors shadow-xs cursor-pointer">
+            ➔
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // ESTADO DO CHATBOT COM IA
+    let aiVoiceEnabled = false;
+    let isListening = false;
+    let recognition = null;
+
+    // Inicializa Web Speech API se suportado
+    (function initSpeech() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        recognition = new SpeechRecognition();
+        recognition.lang = 'pt-PT';
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        recognition.onstart = function() {
+          isListening = true;
+          const micBtn = document.getElementById('ai-mic-btn');
+          if (micBtn) {
+            micBtn.classList.add('bg-red-600', 'text-white', 'animate-pulse');
+            micBtn.classList.remove('bg-slate-800', 'text-slate-300');
+          }
+        };
+
+        recognition.onresult = function(event) {
+          const transcript = event.results[0][0].transcript;
+          const input = document.getElementById('ai-user-input');
+          if (input) {
+            input.value = transcript;
+            handleAIChatSubmit(new Event('submit'));
+          }
+        };
+
+        recognition.onerror = function() {
+          stopListening();
+        };
+
+        recognition.onend = function() {
+          stopListening();
+        };
+      }
+    })();
+
+    function stopListening() {
+      isListening = false;
+      const micBtn = document.getElementById('ai-mic-btn');
+      if (micBtn) {
+        micBtn.classList.remove('bg-red-600', 'text-white', 'animate-pulse');
+        micBtn.classList.add('bg-slate-800', 'text-slate-300');
+      }
+    }
+
+    function toggleSpeechRecognition() {
+      if (!recognition) {
+        alert('O seu navegador não suporta reconhecimento de voz direto. Pode digitar no campo de texto.');
+        return;
+      }
+      if (isListening) {
+        recognition.stop();
+      } else {
+        try {
+          recognition.start();
+        } catch (e) {
+          recognition.stop();
+        }
+      }
+    }
+
+    function toggleAIChat() {
+      const box = document.getElementById('ai-chat-box');
+      const launcher = document.getElementById('ai-chat-launcher');
+      if (!box || !launcher) return;
+
+      if (box.classList.contains('hidden')) {
+        box.classList.remove('hidden');
+        box.classList.add('flex');
+        launcher.classList.add('hidden');
+        setTimeout(() => {
+          const input = document.getElementById('ai-user-input');
+          if (input) input.focus();
+        }, 100);
+      } else {
+        box.classList.add('hidden');
+        box.classList.remove('flex');
+        launcher.classList.remove('hidden');
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
+      }
+    }
+
+    function toggleAIVoice() {
+      aiVoiceEnabled = !aiVoiceEnabled;
+      const icon = document.getElementById('ai-voice-icon');
+      if (icon) {
+        icon.textContent = aiVoiceEnabled ? '🔊' : '🔇';
+      }
+      if (!aiVoiceEnabled && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    function speakText(text) {
+      if (!aiVoiceEnabled || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'pt-PT';
+      utterance.rate = 1.05;
+      
+      const voices = window.speechSynthesis.getVoices();
+      const ptVoice = voices.find(v => v.lang.includes('pt-PT') || v.lang.includes('pt_PT') || v.lang.includes('pt'));
+      if (ptVoice) utterance.voice = ptVoice;
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function sendQuickPrompt(text) {
+      const input = document.getElementById('ai-user-input');
+      if (input) {
+        input.value = text;
+        handleAIChatSubmit(new Event('submit'));
+      }
+    }
+
+    async function handleAIChatSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('ai-user-input');
+      if (!input) return;
+      const message = input.value.trim();
+      if (!message) return;
+
+      input.value = '';
+      appendUserMessage(message);
+
+      // Loader da IA
+      const loaderId = appendAILoader();
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: message })
+        });
+        const data = await res.json();
+        removeLoader(loaderId);
+
+        const reply = data.reply || 'Olá! Como posso ajudar a modernizar o seu negócio hoje?';
+        appendAIMessage(reply);
+        speakText(reply);
+      } catch (err) {
+        removeLoader(loaderId);
+        appendAIMessage('Desculpe, ocorreu uma pequena oscilação na conexão. Pode falar diretamente com o André no WhatsApp pelo +351 933 303 995.');
+      }
+    }
+
+    function appendUserMessage(text) {
+      const container = document.getElementById('ai-messages-container');
+      if (!container) return;
+
+      const div = document.createElement('div');
+      div.className = 'flex items-start justify-end gap-2 max-w-[85%] ml-auto';
+      div.innerHTML = `
+        <div class="bg-emerald-600 text-white rounded-2xl rounded-tr-sm p-3 shadow-xs">
+          <p>${escapeHtml(text)}</p>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function appendAIMessage(text) {
+      const container = document.getElementById('ai-messages-container');
+      if (!container) return;
+
+      const div = document.createElement('div');
+      div.className = 'flex items-start gap-2 max-w-[85%]';
+      div.innerHTML = `
+        <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-[11px] shrink-0 mt-0.5">
+          🤖
+        </div>
+        <div class="bg-slate-900 border border-slate-800 text-slate-200 rounded-2xl rounded-tl-sm p-3 shadow-xs">
+          <p>${escapeHtml(text).replace(/\n/g, '<br>')}</p>
+          <div class="mt-2.5 pt-2 border-t border-slate-800/80 flex items-center justify-between">
+            <a href="https://wa.me/351933303995?text=Ol%C3%A1%20Andr%C3%A9,%20estava%20a%20falar%20com%20a%20IA%20no%20site%20e%20gostaria%20de%20um%20or%C3%A7amento" 
+               target="_blank" class="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
+              <span>Falar no WhatsApp</span> ➔
+            </a>
+          </div>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function appendAILoader() {
+      const container = document.getElementById('ai-messages-container');
+      if (!container) return null;
+
+      const loaderId = 'loader-' + Date.now();
+      const div = document.createElement('div');
+      div.id = loaderId;
+      div.className = 'flex items-start gap-2 max-w-[85%]';
+      div.innerHTML = `
+        <div class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-[11px] shrink-0 mt-0.5">
+          🤖
+        </div>
+        <div class="bg-slate-900 border border-slate-800 text-slate-400 rounded-2xl rounded-tl-sm p-3 shadow-xs flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-bounce"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-bounce [animation-delay:0.2s]"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-bounce [animation-delay:0.4s]"></span>
+        </div>
+      `;
+      container.appendChild(div);
+      container.scrollTop = container.scrollHeight;
+      return loaderId;
+    }
+
+    function removeLoader(loaderId) {
+      if (!loaderId) return;
+      const loader = document.getElementById(loaderId);
+      if (loader) loader.remove();
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+  </script>
+
 </body>
 </html>
