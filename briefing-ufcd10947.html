@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Briefing — Portefólio Pessoal | André Correia</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; font-size: 11pt; }
+      .shadow-sm, .shadow-md { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen py-8 px-4 sm:px-6">
+
+  <!-- BARRA DE TOPO DE IMPRESSÃO / SITEMAP -->
+  <div class="no-print max-w-4xl mx-auto mb-6 flex items-center justify-between">
+    <a href="sitemap.html" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-white border border-slate-200 px-3.5 py-2 rounded-xl transition-all shadow-xs">
+      <span>← Ver o Sitemap</span>
+    </a>
+    <button onclick="window.print()" class="inline-flex items-center gap-1.5 text-xs font-bold bg-slate-900 hover:bg-slate-800 text-white px-3.5 py-2 rounded-xl transition-all shadow-xs">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+      <span>Imprimir / Guardar PDF</span>
+    </button>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white border border-slate-200 rounded-3xl p-6 sm:p-12 shadow-sm space-y-10">
+
+    <!-- CABEÇALHO DO BRIEFING -->
+    <header class="border-b border-slate-200 pb-8">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold tracking-wider uppercase text-slate-400 block mb-1">
+            UFCD 10947 — Websites No-Code
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Design Briefing
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Planeamento e definição do âmbito de um website • Tema: Portefólio Pessoal
+          </p>
+        </div>
+        <div class="text-left sm:text-right text-xs text-slate-600 bg-slate-50 sm:bg-transparent p-3 sm:p-0 rounded-xl border sm:border-0 border-slate-100">
+          <div><strong>Formando:</strong> André Luiz Lima Correia</div>
+          <div><strong>Formadora:</strong> Marta Angelina Ferreira Padilha</div>
+          <div><strong>Centro:</strong> IEFP Setúbal (2026)</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SEÇÃO 01: CONTEXTO E IDENTIDADE -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
+        <span class="w-6 h-6 rounded-md bg-slate-900 text-white flex items-center justify-center text-xs font-bold">01</span>
+        <h2 class="text-lg font-bold text-slate-900">Contexto e Identidade</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-0.5">Empresa, organização ou projeto</span>
+          <p class="font-bold text-slate-800 text-sm">Portefólio Pessoal — André Correia</p>
+          <p class="text-slate-500 mt-0.5">Área de atividade: Desenvolvimento No-Code, Automação e Inteligência Artificial.</p>
+        </div>
+
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-0.5">Pessoa de contacto</span>
+          <p class="font-bold text-slate-800 text-sm">André Luiz Lima Correia</p>
+          <p class="text-slate-500 mt-0.5">E-mail: Andreluizlimacorreia@gmail.com | Tel: +351 933 303 995</p>
+        </div>
+      </div>
+
+      <div class="text-xs space-y-3">
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">O que faz a organização? (Produtos, serviços ou atividades)</span>
+          <p class="text-slate-700 leading-relaxed">
+            Desenvolvimento de soluções digitais e automações recorrendo a ferramentas No-Code (como Framer) e integração de inteligência artificial (agentes conversacionais, automações de atendimento e integração de canais de comunicação).
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">Posicionamento e diferenciação</span>
+          <p class="text-slate-700 leading-relaxed">
+            O portefólio pretende destacar a capacidade de entregar projetos práticos, rápidos e funcionais, aliando o design moderno e responsivo do No-Code a fluxos inteligentes de automação. Pretendo ser reconhecido pela clareza técnica, simplicidade e foco na resolução de problemas reais.
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">Concorrentes e referências</span>
+          <p class="text-slate-700 leading-relaxed">
+            Portefólios de designers e criadores no-code da comunidade Framer (ex: framer.com/gallery) e plataformas minimalistas de design (minimal.gallery). Relevante: clareza na tipografia, espaçamento generoso e páginas de projetos com explicação passo a passo.
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">Identidade e materiais disponíveis</span>
+          <p class="text-slate-700 leading-relaxed">
+            Fotografia profissional de perfil, paleta de cores definida (tons neutros, cinza escuro e apontamentos em verde), tipografia moderna sem serifa (Plus Jakarta Sans/Inter), textos descritivos dos estudos de caso e ícones das ferramentas utilizadas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 02: PÚBLICO-ALVO E NECESSIDADES -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
+        <span class="w-6 h-6 rounded-md bg-slate-900 text-white flex items-center justify-center text-xs font-bold">02</span>
+        <h2 class="text-lg font-bold text-slate-900">Público-Alvo e Necessidades</h2>
+      </div>
+
+      <div class="text-xs space-y-3">
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">Público prioritário (Evitando «toda a gente»)</span>
+          <p class="text-slate-700 leading-relaxed">
+            1. Proprietários de pequenas e médias empresas e profissionais liberais que procuram modernizar a sua presença online e automatizar o atendimento.<br/>
+            2. Recrutadores, avaliadores e potenciais parceiros que pretendem conhecer as minhas competências práticas em desenvolvimento No-Code.
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">Necessidades e dúvidas</span>
+          <p class="text-slate-700 leading-relaxed">
+            O público procura entender o que já foi desenvolvido, como cada solução funciona na prática e que resultados foram alcançados. Querem saber quais ferramentas foram utilizadas e se a solução se adapta às suas necessidades.
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">Ação esperada</span>
+          <p class="text-slate-700 leading-relaxed">
+            Consultar os projetos em detalhe, perceber o processo de construção e entrar em contacto direto (através de mensagem ou e-mail) para colocar dúvidas ou solicitar um orçamento/proposta de trabalho.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 03: OBJETIVOS E ÂMBITO DO WEBSITE -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
+        <span class="w-6 h-6 rounded-md bg-slate-900 text-white flex items-center justify-center text-xs font-bold">03</span>
+        <h2 class="text-lg font-bold text-slate-900">Objetivos e Âmbito do Website</h2>
+      </div>
+
+      <div class="text-xs space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="text-slate-400 font-semibold block mb-1">Objetivo principal</span>
+            <p class="text-slate-700 leading-relaxed">
+              Apresentar os projetos, competências e percurso profissional de forma estruturada, elegante e editorial, facilitando a consulta detalhada de cada trabalho.
+            </p>
+          </div>
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="text-slate-400 font-semibold block mb-1">Objetivos secundários</span>
+            <p class="text-slate-700 leading-relaxed">
+              Disponibilizar formas simples de contacto, demonstrar domínio da ferramenta Framer e servir como repositório dos meus estudos de caso.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">Âmbito previsto</span>
+          <p class="text-slate-700 leading-relaxed">
+            Website de portefólio com abordagem editorial. Focado na boa leitura, tipografia cuidada e espaços em branco. Não é uma loja online nem uma aplicação transacional.
+          </p>
+        </div>
+
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">Páginas previstas (Estrutura das 5 páginas)</span>
+          <ul class="text-slate-700 space-y-1 list-disc list-inside">
+            <li><strong>1. Home:</strong> Apresentação pessoal, mensagem de abertura e destaque dos trabalhos.</li>
+            <li><strong>2. Explorar:</strong> Galeria de projetos organizados por áreas (No-Code, Automação, IA).</li>
+            <li><strong>3. Página Temática A:</strong> Apresentação aprofundada de um projeto (Atendente Telefónica com IA).</li>
+            <li><strong>4. Página Temática B:</strong> Apresentação aprofundada de outro projeto (Automação de Atendimento WhatsApp).</li>
+            <li><strong>5. Sobre / Contactos:</strong> Percurso profissional, ferramentas dominadas e contactos diretos.</li>
+          </ul>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="text-slate-400 font-semibold block mb-1">Conteúdos necessários</span>
+            <p class="text-slate-700 leading-relaxed">
+              Textos explicativos de cada projeto, imagens e esquemas dos fluxos construídos, dados de contacto e breve biografia.
+            </p>
+          </div>
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="text-slate-400 font-semibold block mb-1">Funcionalidades e integrações</span>
+            <p class="text-slate-700 leading-relaxed">
+              Filtros por categorias na página Explorar, formulário de contacto simples e ligações diretas para WhatsApp e LinkedIn.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 04: REFERÊNCIAS E ORIENTAÇÃO VISUAL -->
+    <section class="space-y-4">
+      <div class="flex items-center gap-2 border-b border-slate-100 pb-2">
+        <span class="w-6 h-6 rounded-md bg-slate-900 text-white flex items-center justify-center text-xs font-bold">04</span>
+        <h2 class="text-lg font-bold text-slate-900">Referências e Orientação Visual</h2>
+      </div>
+
+      <div class="text-xs space-y-3">
+        <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+          <span class="text-slate-400 font-semibold block mb-1">Websites de referência</span>
+          <p class="text-slate-700 leading-relaxed">
+            Websites da galeria oficial do Framer (framer.com/gallery) e portefólios minimalistas. O que pretendo aproveitar: hierarquia visual clara, boa utilização do espaço vazio e navegação intuitiva entre os estudos de caso.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="text-slate-400 font-semibold block mb-1">Preferências e aspetos a evitar</span>
+            <p class="text-slate-700 leading-relaxed">
+              <strong>Gosto:</strong> Linhas simples, contraste agradável, leitura rápida e boa experiência em telemóvel.<br/>
+              <strong>Evitar:</strong> Excesso de animações pesadas, pop-ups intrusivos e páginas carregadas de elementos desnecessários.
+            </p>
+          </div>
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="text-slate-400 font-semibold block mb-1">Tom de comunicação e direção visual</span>
+            <p class="text-slate-700 leading-relaxed">
+              <strong>Tom:</strong> Profissional, próximo, direto e transparente.<br/>
+              <strong>Direção visual:</strong> Tons neutros (fundo claro, texto grafite escuro), apontamentos subtis de cor para destaque e tipografia limpa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="pt-6 border-t border-slate-100 text-center text-xs text-slate-400">
+      Design Briefing (Pontos 1 a 4) • Tarefa 1 — UFCD 10947 • IEFP Setúbal
+    </footer>
+
+  </main>
+
+</body>
+</html>
