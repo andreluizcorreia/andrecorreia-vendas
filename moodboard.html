@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moodboard — Direção Visual | André Correia (UFCD 10947)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-canvas: #f8fafc;
+      --bg-board: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --primary-light: #ecfdf5;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    /* Top Academic Header */
+    .top-bar {
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1e293b;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .top-bar span strong {
+      color: #f8fafc;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .top-links a {
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .top-links a:hover {
+      color: #34d399;
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    /* Board Header */
+    .board-header {
+      background: var(--bg-board);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-bottom: 32px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .board-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #0f172a);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      color: #065f46;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .board-lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 860px;
+    }
+
+    /* Canvas Grid */
+    .canvas-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .col-12 { grid-column: span 12; }
+    .col-8 { grid-column: span 8; }
+    .col-7 { grid-column: span 7; }
+    .col-6 { grid-column: span 6; }
+    .col-5 { grid-column: span 5; }
+    .col-4 { grid-column: span 4; }
+
+    /* Sticky Note / Canvas Card */
+    .mood-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .mood-card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .mood-card-title svg {
+      width: 22px;
+      height: 22px;
+      color: var(--primary);
+    }
+
+    /* Color Swatches */
+    .color-swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 16px;
+    }
+
+    .swatch-item {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .swatch-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px -4px rgba(15, 23, 42, 0.1);
+    }
+
+    .swatch-color {
+      height: 72px;
+      width: 100%;
+      position: relative;
+    }
+
+    .swatch-info {
+      padding: 10px 12px;
+    }
+
+    .swatch-name {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .swatch-role {
+      font-size: 0.7rem;
+      color: #059669;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Typography Specimens */
+    .type-specimen {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .type-row {
+      padding: 14px 18px;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+    }
+
+    .type-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .type-sample-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text-main);
+    }
+
+    .type-sample-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    .type-sample-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #0f172a;
+    }
+
+    /* Keywords Post-it Wall */
+    .tags-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .postit-tag {
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .tag-emerald { background: #d1fae5; color: #065f46; border-color: #a7f3d0; }
+    .tag-slate { background: #e2e8f0; color: #1e293b; border-color: #cbd5e1; }
+    .tag-neutral { background: #f1f5f9; color: #334155; border-color: #e2e8f0; }
+    .tag-white { background: #ffffff; color: #0f172a; border-color: #cbd5e1; }
+
+    /* Visual Aesthetic Cards (Mockups / Diagrams) */
+    .mockup-preview {
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      margin-top: 10px;
+    }
+
+    .mockup-header {
+      background: #f1f5f9;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .circle {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cbd5e1;
+    }
+
+    .circle.red { background: #fca5a5; }
+    .circle.yellow { background: #fde047; }
+    .circle.green { background: #86efac; }
+
+    .mockup-body {
+      padding: 24px;
+      background: #ffffff;
+    }
+
+    .editorial-hero-sketch {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .editorial-badge-sketch {
+      width: 140px;
+      height: 18px;
+      background: #ecfdf5;
+      border-radius: 999px;
+    }
+
+    .editorial-title-sketch {
+      width: 85%;
+      height: 28px;
+      background: #0f172a;
+      border-radius: 6px;
+    }
+
+    .editorial-subtitle-sketch {
+      width: 65%;
+      height: 14px;
+      background: #94a3b8;
+      border-radius: 4px;
+    }
+
+    .editorial-buttons-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .btn-mockup-primary {
+      background: #10b981;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-mockup-secondary {
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Design Principles Checklist */
+    .principles-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .principles-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .principles-list svg {
+      width: 20px;
+      height: 20px;
+      color: #10b981;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Footer Navigation */
+    .footer-bar {
+      margin-top: 40px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-left {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .btn-emerald {
+      background: #10b981;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 24px;
+      border-radius: 12px;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-emerald:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: #0f172a;
+      border: 1px solid var(--border-color);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 22px;
+      border-radius: 12px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    @media (max-width: 992px) {
+      .col-8, .col-7, .col-6, .col-5, .col-4 {
+        grid-column: span 12;
+      }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Academic Context Bar -->
+  <div class="top-bar">
+    <div>
+      <strong>IEFP Setúbal</strong> | UFCD 10947: Websites No-Code | Formadora: <strong>Marta Angelina Ferreira Padilha</strong>
+    </div>
+    <div class="top-links">
+      <a href="/briefing-ufcd10947.html">Briefing (Tarefa 1)</a>
+      <a href="/sitemap.html">Sitemap (Tarefa 1)</a>
+      <a href="/ui-kit.html">UI Kit (Tarefa 2)</a>
+      <a href="/Matriz_de_Conteudos.xlsx">Matriz Excel</a>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- Board Header -->
+    <header class="board-header">
+      <div class="badge-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
+        Entregável 1 — Tarefa 2
+      </div>
+      <h1>Moodboard: Direção Visual & Universo Estético</h1>
+      <p class="board-lead">
+        Painel conceptual e estético para o portefólio pessoal de <strong>André Correia</strong>. Define o tom, a atmosfera e os fundamentos formais para a construção do website na plataforma Framer sob rigor editorial e minimalismo contemporâneo.
+      </p>
+    </header>
+
+    <!-- Canvas Grid -->
+    <main class="canvas-grid">
+
+      <!-- Box 1: Conceito & Atmosfera Visual -->
+      <section class="mood-card col-7">
+        <h2 class="mood-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          1. Atmosfera & Personalidade Visual
+        </h2>
+        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px;">
+          A linguagem visual afasta-se do ruído visual comum em agências e foca-se na <strong>clareza editorial</strong>, no <strong>respiro de espaços negativos</strong> e no <strong>rigor de engenharia</strong>. Transmite confiança a decisores empresariais e clientes que procuram soluções de automação e inteligência artificial robustas.
+        </p>
+        
+        <div class="tags-cloud">
+          <div class="postit-tag tag-emerald">
+            <span>●</span> Clareza Editorial
+          </div>
+          <div class="postit-tag tag-slate">
+            <span>●</span> Minimalismo Moderno
+          </div>
+          <div class="postit-tag tag-neutral">
+            <span>●</span> Rigor Técnico
+          </div>
+          <div class="postit-tag tag-white">
+            <span>●</span> Elegância Funcional
+          </div>
+          <div class="postit-tag tag-emerald">
+            <span>●</span> Confiança Institucional
+          </div>
+          <div class="postit-tag tag-neutral">
+            <span>●</span> Foco em Resultados
+          </div>
+        </div>
+      </section>
+
+      <!-- Box 2: Princípios Diretivos de Design -->
+      <section class="mood-card col-5">
+        <h2 class="mood-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          2. Regras de Ouro do Design
+        </h2>
+        <ul class="principles-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Consistência Transversal:</strong> Botões, tipografia e raios de curvatura idênticos em todas as 5 páginas (regra da formadora).
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Hierarquia de Leitura:</strong> Contraste expressivo entre títulos de impacto (H1/H2) e corpos de texto arejados.
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>Design Baseado em 8px:</strong> Alinhamento milimétrico em grelhas e espaçamentos múltiplos de 8.
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Box 3: Paleta Cromática de Referência -->
+      <section class="mood-card col-12">
+        <h2 class="mood-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0 0 20v-20z"/></svg>
+          3. Paleta Cromática Oficial (System Tokens)
+        </h2>
+        <div class="color-swatches-grid">
+          
+          <div class="swatch-item">
+            <div class="swatch-color" style="background-color: #10b981;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Verde Esmeralda</div>
+              <div class="swatch-hex">#10b981</div>
+              <div class="swatch-role">Acento & Botão Primário</div>
+            </div>
+          </div>
+
+          <div class="swatch-item">
+            <div class="swatch-color" style="background-color: #059669;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Esmeralda Dark</div>
+              <div class="swatch-hex">#059669</div>
+              <div class="swatch-role">Hover & Interatividade</div>
+            </div>
+          </div>
+
+          <div class="swatch-item">
+            <div class="swatch-color" style="background-color: #ecfdf5;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Esmeralda Soft</div>
+              <div class="swatch-hex">#ecfdf5</div>
+              <div class="swatch-role">Badges & Destaques</div>
+            </div>
+          </div>
+
+          <div class="swatch-item">
+            <div class="swatch-color" style="background-color: #0f172a;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Cinza Ardósia</div>
+              <div class="swatch-hex">#0f172a</div>
+              <div class="swatch-role">Tipografia Principal</div>
+            </div>
+          </div>
+
+          <div class="swatch-item">
+            <div class="swatch-color" style="background-color: #64748b;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ardósia Médio</div>
+              <div class="swatch-hex">#64748b</div>
+              <div class="swatch-role">Texto de Apoio / Meta</div>
+            </div>
+          </div>
+
+          <div class="swatch-item">
+            <div class="swatch-color" style="background-color: #f1f5f9;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Cinza Neutro</div>
+              <div class="swatch-hex">#f1f5f9</div>
+              <div class="swatch-role">Botão Secundário / Fundo</div>
+            </div>
+          </div>
+
+          <div class="swatch-item">
+            <div class="swatch-color" style="background-color: #ffffff; border-bottom: 1px solid #e2e8f0;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Branco Puro</div>
+              <div class="swatch-hex">#ffffff</div>
+              <div class="swatch-role">Fundo Principal & Cards</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Box 4: Tipografia de Referência -->
+      <section class="mood-card col-6">
+        <h2 class="mood-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
+          4. Tipografia de Referência
+        </h2>
+        <div class="type-specimen">
+          
+          <div class="type-row">
+            <div class="type-meta">
+              <span>Plus Jakarta Sans — Bold / 800</span>
+              <span>Títulos & Display (H1, H2)</span>
+            </div>
+            <div class="type-sample-display">
+              Arquitetura Digital & IA de Voz
+            </div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <span>Inter — Regular & Medium / 400, 500</span>
+              <span>Corpo Editorial & Artigos</span>
+            </div>
+            <div class="type-sample-body">
+              Projetos desenhados para otimizar processos reais de atendimento, triagem comercial e eficiência operacional em pequenas e médias empresas.
+            </div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <span>JetBrains Mono — 500</span>
+              <span>Badges, Metadados & Código</span>
+            </div>
+            <div class="type-sample-mono">
+              STATUS: CONCLUÍDO | LATÊNCIA: &lt; 800ms
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Box 5: Diagramação & Composição de Interface -->
+      <section class="mood-card col-6">
+        <h2 class="mood-card-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          5. Referência de Composição no Framer
+        </h2>
+        <p style="font-size: 0.9rem; color: #475569; margin-bottom: 12px;">
+          Mockup esquemático demonstrando a aplicação harmoniosa da paleta, proporções e botões padronizados no Hero da página Home:
+        </p>
+
+        <div class="mockup-preview">
+          <div class="mockup-header">
+            <span class="circle red"></span>
+            <span class="circle yellow"></span>
+            <span class="circle green"></span>
+            <span style="font-size: 0.72rem; color: #94a3b8; margin-left: 8px; font-family: 'JetBrains Mono', monospace;">framer-preview / home</span>
+          </div>
+          <div class="mockup-body">
+            <div class="editorial-hero-sketch">
+              <div class="editorial-badge-sketch"></div>
+              <div class="editorial-title-sketch"></div>
+              <div class="editorial-subtitle-sketch"></div>
+              <div class="editorial-buttons-row">
+                <div class="btn-mockup-primary">
+                  <span>Explorar Trabalhos</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+                </div>
+                <div class="btn-mockup-secondary">Sobre Mim</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Navigation -->
+    <footer class="footer-bar">
+      <div class="footer-left">
+        <strong>André Correia</strong> — Portefólio Pessoal No-Code | UFCD 10947 (IEFP Setúbal)
+      </div>
+      <div style="display: flex; gap: 12px;">
+        <a href="/sitemap.html" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Ver Sitemap
+        </a>
+        <a href="/ui-kit.html" class="btn-emerald">
+          Avançar para o UI Kit
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
