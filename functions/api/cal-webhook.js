@@ -1,13 +1,31 @@
-export async function onRequestPost(context) {
+export async function onRequest(context) {
   const TELEGRAM_BOT_TOKEN = context.env.TELEGRAM_BOT_TOKEN || "8515239458:AAHRqT2Nxkmok_hn0jvRHOBaWzBVwqSQMQI";
   const TELEGRAM_CHAT_ID = context.env.TELEGRAM_CHAT_ID || "7192141006";
 
   const corsHeaders = {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, x-cal-signature-256",
     "Content-Type": "application/json"
   };
+
+  if (context.request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: corsHeaders
+    });
+  }
+
+  if (context.request.method === "GET") {
+    return new Response(JSON.stringify({ 
+      status: "online", 
+      service: "Cal.com Webhook Dispatcher",
+      author: "André Correia • Soluções Digitais & IA"
+    }), {
+      status: 200,
+      headers: corsHeaders
+    });
+  }
 
   try {
     const body = await context.request.json();
@@ -119,15 +137,4 @@ export async function onRequestPost(context) {
       headers: corsHeaders
     });
   }
-}
-
-export async function onRequestOptions() {
-  return new Response(null, {
-    status: 204,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type, x-cal-signature-256"
-    }
-  });
 }
