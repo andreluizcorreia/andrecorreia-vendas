@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap Oficial
+Sitemap: https://andrecorreia01.com.br/sitemap.xml

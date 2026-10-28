@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página Principal / Home -->
+  <url>
+    <loc>https://andrecorreia01.com.br/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Pilar 1: Sites & Lojas Ultrarrápidas -->
+  <url>
+    <loc>https://andrecorreia01.com.br/pilar-sites-ultrarrapidos.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Pilar 2: Atendente Inteligente no WhatsApp -->
+  <url>
+    <loc>https://andrecorreia01.com.br/pilar-atendente-ia-whatsapp.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Pilar 3: Atendente de Voz 24/7 por Telefone -->
+  <url>
+    <loc>https://andrecorreia01.com.br/pilar-atendente-voz-24h.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Pilar 4: Tráfego Pago & Domínio Local -->
+  <url>
+    <loc>https://andrecorreia01.com.br/pilar-trafego-pago-local.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog & Insights -->
+  <url>
+    <loc>https://andrecorreia01.com.br/blog.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Mapa do Site Visual -->
+  <url>
+    <loc>https://andrecorreia01.com.br/sitemap.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Termos e Privacidade -->
+  <url>
+    <loc>https://andrecorreia01.com.br/politica-de-privacidade.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://andrecorreia01.com.br/termos-de-uso.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
