@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria Studio de Animações — André Correia</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lottie-Web Oficial Open-Source Player -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    .custom-scroll::-webkit-scrollbar { width: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    .custom-scroll::-webkit-scrollbar-thumb { background: rgba(16, 185, 129, 0.4); border-radius: 9999px; }
+    .custom-scroll::-webkit-scrollbar-thumb:hover { background: rgba(16, 185, 129, 0.8); }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-slate-950 text-slate-100 selection:bg-emerald-500 selection:text-white">
+
+  <!-- HEADER / TOPBAR ESTILO STUDIO -->
+  <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Status -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <span class="font-extrabold text-base tracking-tight text-white block">Motion Studio <span class="text-emerald-400">Hub</span></span>
+            <span class="text-[10px] text-slate-400 uppercase tracking-widest font-semibold block">Catálogo Modular de Animações</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Barra de Pesquisa Rápida -->
+      <div class="flex-1 max-w-md hidden sm:block">
+        <div class="relative">
+          <input type="text" id="search-input" placeholder="Buscar animação (ex: whatsapp, bot, vendas)..."
+                 class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-2 pl-10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all">
+          <svg class="w-4 h-4 text-slate-500 absolute left-3.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+      </div>
+
+      <!-- Ações -->
+      <div class="flex items-center gap-3">
+        <span id="counter-badge" class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
+          0 Carregadas
+        </span>
+        <a href="index.html" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors">
+          Voltar ao Site
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- CONTROLES DE CATEGORIA E FILTRO -->
+  <section class="bg-slate-900/40 border-b border-slate-800/80 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap items-center justify-between gap-3">
+      <div id="category-filters" class="flex flex-wrap items-center gap-2">
+        <button data-cat="all" class="cat-btn active px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-emerald-600 text-white shadow-md shadow-emerald-600/20">
+          Todas
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2 text-xs text-slate-400">
+        <span>Velocidade Global:</span>
+        <select id="speed-selector" class="bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-slate-200 focus:outline-none focus:border-emerald-500">
+          <option value="0.5">0.5x</option>
+          <option value="1.0" selected>1.0x (Normal)</option>
+          <option value="1.5">1.5x</option>
+          <option value="2.0">2.0x</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID DE ANIMAÇÕES -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full">
+    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <!-- Cards injetados via JavaScript determinístico -->
+    </div>
+
+    <!-- Controles de Paginação (20 por página) -->
+    <div id="pagination-controls" class="mt-10 flex items-center justify-center gap-3">
+      <button id="prev-page-btn" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 text-xs font-bold text-slate-300 disabled:opacity-30 disabled:pointer-events-none transition-all">
+        ← Anterior
+      </button>
+      <span id="page-indicator" class="text-xs font-mono font-semibold text-emerald-400 px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg">
+        Página 1 de 1
+      </span>
+      <button id="next-page-btn" class="px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 text-xs font-bold text-slate-300 disabled:opacity-30 disabled:pointer-events-none transition-all">
+        Próxima →
+      </button>
+    </div>
+
+    <!-- Mensagem de Vazio -->
+    <div id="empty-state" class="hidden text-center py-20">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500 mb-3">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <p class="text-sm font-semibold text-slate-300">Nenhuma animação encontrada</p>
+      <p class="text-xs text-slate-500 mt-1">Tente buscar por outro termo ou categoria.</p>
+    </div>
+  </main>
+
+  <!-- MODAL DE CÓDIGO & INSPEÇÃO -->
+  <div id="code-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl flex flex-col max-h-[85vh]">
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <h3 id="modal-title" class="text-sm font-bold text-white">Código da Animação</h3>
+          <p id="modal-subtitle" class="text-[11px] text-slate-400">Copie o trecho para usar no site ou no Remotion</p>
+        </div>
+        <button id="close-modal-btn" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-colors">
+          ✕
+        </button>
+      </div>
+
+      <div class="p-4 overflow-y-auto custom-scroll flex-1 bg-slate-950">
+        <pre><code id="modal-code" class="text-xs text-emerald-400"></code></pre>
+      </div>
+
+      <div class="p-4 border-t border-slate-800 bg-slate-900 flex justify-end gap-2">
+        <button id="copy-code-btn" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-md flex items-center gap-1.5">
+          <span>Copiar Trecho</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ MODULAR -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500">
+    <p>Motion Studio • 100% Self-Hosted & Open-Source • Glaxnimate & Lottie Native</p>
+  </footer>
+
+  <!-- SCRIPT DETERMINÍSTICO DO PAINEL -->
+  <script>
+    let allAnimations = [];
+    let lottieInstances = {};
+    let currentSpeed = 1.0;
+    let activeCategory = 'all';
+    let currentPage = 1;
+    const itemsPerPage = 20;
+
+    async function loadAnimations() {
+      try {
+        const res = await fetch('assets/animacoes/animacoes.json');
+        allAnimations = await res.json();
+        
+        document.getElementById('counter-badge').textContent = `${allAnimations.length} Animações Ativas`;
+        buildCategories();
+        setupPaginationListeners();
+        renderGrid();
+      } catch (err) {
+        console.error('Erro ao carregar banco de animações:', err);
+      }
+    }
+
+    function buildCategories() {
+      const container = document.getElementById('category-filters');
+      const cats = [...new Set(allAnimations.map(a => a.categoria))];
+
+      cats.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.dataset.cat = cat;
+        btn.className = 'cat-btn px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700';
+        btn.textContent = cat;
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.cat-btn').forEach(b => {
+            b.className = 'cat-btn px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700';
+          });
+          btn.className = 'cat-btn active px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-emerald-600 text-white shadow-md shadow-emerald-600/20';
+          activeCategory = cat;
+          currentPage = 1;
+          renderGrid();
+        });
+        container.appendChild(btn);
+      });
+
+      // Listener para o botão "Todas"
+      const allBtn = container.querySelector('[data-cat="all"]');
+      if (allBtn) {
+        allBtn.addEventListener('click', () => {
+          document.querySelectorAll('.cat-btn').forEach(b => {
+            b.className = 'cat-btn px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700';
+          });
+          allBtn.className = 'cat-btn active px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-emerald-600 text-white shadow-md shadow-emerald-600/20';
+          activeCategory = 'all';
+          currentPage = 1;
+          renderGrid();
+        });
+      }
+    }
+
+    function setupPaginationListeners() {
+      document.getElementById('prev-page-btn').addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderGrid();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+      document.getElementById('next-page-btn').addEventListener('click', () => {
+        const totalFiltered = getFilteredAnimations().length;
+        const totalPages = Math.ceil(totalFiltered / itemsPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderGrid();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
+
+    function getFilteredAnimations() {
+      const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+      return allAnimations.filter(anim => {
+        const matchCat = (activeCategory === 'all' || anim.categoria === activeCategory);
+        const matchSearch = anim.titulo.toLowerCase().includes(searchTerm) ||
+                            anim.descricao.toLowerCase().includes(searchTerm);
+        return matchCat && matchSearch;
+      });
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('gallery-grid');
+      const empty = document.getElementById('empty-state');
+      const filtered = getFilteredAnimations();
+
+      // Destrói instâncias antigas para liberar memória da GPU
+      Object.values(lottieInstances).forEach(inst => {
+        try { inst.destroy(); } catch (e) {}
+      });
+      lottieInstances = {};
+      grid.innerHTML = '';
+
+      const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      // Atualiza Indicador e Botões de Paginação
+      document.getElementById('page-indicator').textContent = `Página ${currentPage} de ${totalPages} (${filtered.length} total)`;
+      document.getElementById('prev-page-btn').disabled = (currentPage <= 1);
+      document.getElementById('next-page-btn').disabled = (currentPage >= totalPages);
+
+      if (filtered.length === 0) {
+        empty.classList.remove('hidden');
+        document.getElementById('pagination-controls').classList.add('hidden');
+        return;
+      } else {
+        empty.classList.add('hidden');
+        document.getElementById('pagination-controls').classList.remove('hidden');
+      }
+
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const paginatedItems = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+      paginatedItems.forEach(anim => {
+        const card = document.createElement('div');
+        card.className = 'bg-slate-900 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5 group';
+
+        card.innerHTML = `
+          <div>
+            <!-- Top Tag & Type -->
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                ${anim.categoria}
+              </span>
+              <span class="text-[10px] font-mono text-slate-500">ID: ${anim.id}</span>
+            </div>
+
+            <!-- Visual Preview Area (Lottie Canvas) -->
+            <div class="w-full h-44 rounded-xl bg-slate-950 border border-slate-850 flex items-center justify-center relative overflow-hidden group-hover:border-slate-700 transition-colors">
+              <div id="lottie-box-${anim.id}" class="w-32 h-32 flex items-center justify-center pointer-events-none"></div>
+              
+              <!-- Badge Gatilho -->
+              <span class="absolute bottom-2 right-2 text-[9px] font-semibold text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded-md border border-slate-800">
+                ${anim.gatilho}
+              </span>
+            </div>
+
+            <!-- Info -->
+            <div class="mt-4">
+              <h4 class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">${anim.titulo}</h4>
+              <p class="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">${anim.descricao}</p>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between gap-2">
+            <button class="test-btn px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] font-semibold text-slate-200 transition-colors flex items-center gap-1.5" data-id="${anim.id}">
+              <span>Replay</span>
+            </button>
+            <button class="code-btn px-3 py-1.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white text-[11px] font-bold transition-all border border-emerald-500/30" data-id="${anim.id}">
+              Ver Código
+            </button>
+          </div>
+        `;
+
+        grid.appendChild(card);
+
+        // Inicializa o player Lottie com path ou animationData
+        const containerBox = card.querySelector(`#lottie-box-${anim.id}`);
+        const loadConfig = {
+          container: containerBox,
+          renderer: 'svg',
+          loop: true,
+          autoplay: true
+        };
+
+        if (anim.arquivo) {
+          loadConfig.path = anim.arquivo;
+        } else if (anim.lottie_data) {
+          loadConfig.animationData = anim.lottie_data;
+        }
+
+        const animInstance = lottie.loadAnimation(loadConfig);
+        animInstance.setSpeed(currentSpeed);
+        lottieInstances[anim.id] = animInstance;
+
+        // Botão Replay
+        card.querySelector('.test-btn').addEventListener('click', () => {
+          animInstance.goToAndPlay(0, true);
+        });
+
+        // Botão Ver Código
+        card.querySelector('.code-btn').addEventListener('click', () => {
+          openCodeModal(anim);
+        });
+      });
+    }
+
+    // Modal de Código
+    function openCodeModal(anim) {
+      const modal = document.getElementById('code-modal');
+      const title = document.getElementById('modal-title');
+      const codeBlock = document.getElementById('modal-code');
+
+      title.textContent = `Código: ${anim.titulo} (${anim.id})`;
+      const sampleCode = `<!-- Como usar no seu site HTML -->
+<div id="minha-animacao" style="width: 120px; height: 120px;"></div>
+<script>
+  lottie.loadAnimation({
+    container: document.getElementById('minha-animacao'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'assets/animacoes/${anim.id}.json' // ou injeção de JSON direto
+  });
+<\/script>
+
+// Como usar no Remotion (React):
+import Lottie from 'lottie-react';
+import animData from './${anim.id}.json';
+
+export const MyScene = () => (
+  <Lottie animationData={animData} loop autoplay />
+);`;
+
+      codeBlock.textContent = sampleCode;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    document.getElementById('close-modal-btn').addEventListener('click', () => {
+      document.getElementById('code-modal').classList.add('hidden');
+      document.getElementById('code-modal').classList.remove('flex');
+    });
+
+    document.getElementById('copy-code-btn').addEventListener('click', () => {
+      const code = document.getElementById('modal-code').textContent;
+      navigator.clipboard.writeText(code);
+      const btn = document.getElementById('copy-code-btn');
+      btn.textContent = 'Copiado!';
+      setTimeout(() => { btn.textContent = 'Copiar Trecho'; }, 1500);
+    });
+
+    // Filtros e Velocidade
+    document.getElementById('search-input').addEventListener('input', renderGrid);
+    document.getElementById('speed-selector').addEventListener('change', (e) => {
+      currentSpeed = parseFloat(e.target.value);
+      Object.values(lottieInstances).forEach(inst => inst.setSpeed(currentSpeed));
+    });
+
+    // Iniciar
+    loadAnimations();
+  </script>
+</body>
+</html>

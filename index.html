@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>André Correia — Presença Digital, Social Selling & IA em Portugal</title>
   <link rel="canonical" href="https://andrecorreia01.com.br/" />
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml" />
   <!-- ============================================== -->
   <!-- RASTREAMENTO OFICIAL: GTM, PIXELS & ANALYTICS  -->
   <!-- ============================================== -->
@@ -124,21 +124,29 @@
       background-size: 32px 32px;
     }
     
-    /* Animação Marquee Infinita, Contínua e Balanceada */
+    /* Animação Marquee Infinita, Contínua e Acelerada por Hardware */
     @keyframes marqueeScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
     }
     
     .marquee-track {
       display: flex;
       width: max-content;
-      animation: marqueeScroll 18s linear infinite;
+      animation: marqueeScroll 28s linear infinite;
       will-change: transform;
     }
     
     .marquee-track:hover {
       animation-play-state: paused;
+    }
+
+    .marquee-track-tech {
+      animation-duration: 35s;
+    }
+
+    .marquee-track-ticker {
+      animation-duration: 26s;
     }
 
     /* Animação de Ondas de Voz em Tempo Real */
@@ -298,20 +306,7 @@
       animation: borderBeamRotate 4.5s linear infinite;
     }
 
-    /* Letreiro Noticioso Contínuo (Live Ticker) */
-    @keyframes marqueeScroll {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
-    }
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marqueeScroll 30s linear infinite;
-      will-change: transform;
-    }
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
+    /* Marquee unificado nas regras principais */
   </style>
 </head>
 <body class="bg-white text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
@@ -351,7 +346,7 @@
         <!-- MENU DROPDOWN 4 PILARES -->
         <div class="relative group">
           <button class="inline-flex items-center gap-1 text-slate-900 hover:text-emerald-600 transition-colors py-2 font-bold cursor-pointer">
-            <span>4 Pilares de IA</span>
+            <span>6 Pilares de IA</span>
             <svg class="w-4 h-4 text-emerald-600 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="absolute top-full left-0 w-72 bg-white border border-slate-200 rounded-2xl shadow-2xl p-2.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -370,6 +365,14 @@
             <a href="pilar-trafego-pago-local.html" class="block p-2.5 rounded-xl hover:bg-emerald-50 transition-colors">
               <div class="text-xs font-bold text-slate-900">Pilar 4: Tráfego Pago Local</div>
               <div class="text-[11px] text-slate-500">Domínio no Google Maps & Ads</div>
+            </a>
+            <a href="pilar-rastreamento-dados.html" class="block p-2.5 rounded-xl hover:bg-emerald-50 transition-colors">
+              <div class="text-xs font-bold text-slate-900">Pilar 5: Rastreamento & Microsoft Clarity IA</div>
+              <div class="text-[11px] text-slate-500">Dados server-side & mapas de calor</div>
+            </a>
+            <a href="pilar-retargeting-omnipresente.html" class="block p-2.5 rounded-xl hover:bg-emerald-50 transition-colors">
+              <div class="text-xs font-bold text-slate-900">Pilar 6: Retargeting & Cerco Omnipresente</div>
+              <div class="text-[11px] text-slate-500">Anúncios multicanal até fechar negócio</div>
             </a>
           </div>
         </div>
@@ -432,7 +435,7 @@
           </a>
           <a href="#servicos" 
              class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold bg-white hover:bg-slate-50 border border-slate-300 text-slate-700 shadow-sm hover:shadow transition-all text-center">
-            Conhecer os 4 Pilares
+            Conhecer os 6 Pilares
           </a>
         </div>
 
@@ -485,69 +488,8 @@
     </div>
   </section>
 
-  <!-- FAIXA DE TECNOLOGIAS & PLATAFORMAS INTEGRADAS (TRUST BAR) -->
-  <section class="py-8 bg-white border-t border-slate-200/80">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <p class="text-center text-[11px] font-extrabold uppercase tracking-widest text-slate-400 mb-6">
-        Tecnologias & Plataformas Integradas Oficialmente
-      </p>
-      
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4 max-w-5xl mx-auto text-slate-700">
-        
-        <!-- WhatsApp -->
-        <div class="flex items-center justify-center gap-2 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/40 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm">
-          <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </div>
-          <span class="font-bold text-[11px] sm:text-xs text-slate-800 whitespace-nowrap">WhatsApp Cloud</span>
-        </div>
-
-        <!-- Instagram -->
-        <div class="flex items-center justify-center gap-2 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-pink-500/50 hover:bg-pink-50/40 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm">
-          <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </div>
-          <span class="font-bold text-[11px] sm:text-xs text-slate-800 whitespace-nowrap">Instagram</span>
-        </div>
-
-        <!-- Meta Facebook -->
-        <div class="flex items-center justify-center gap-2 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-500/50 hover:bg-blue-50/40 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm">
-          <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </div>
-          <span class="font-bold text-[11px] sm:text-xs text-slate-800 whitespace-nowrap">Meta Facebook</span>
-        </div>
-
-        <!-- Google Maps & Ads -->
-        <div class="flex items-center justify-center gap-2 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-amber-500/50 hover:bg-amber-50/40 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm">
-          <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
-          </div>
-          <span class="font-bold text-[11px] sm:text-xs text-slate-800 whitespace-nowrap">Google Maps & Ads</span>
-        </div>
-
-        <!-- ChatGPT / OpenAI -->
-        <div class="flex items-center justify-center gap-2 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-teal-600/50 hover:bg-teal-50/40 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm">
-          <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.771-4.205 5.99 5.99 0 0 0 3.998-2.9 6.056 6.056 0 0 0-.747-7.074zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 8.487a4.485 4.485 0 0 1 2.365-1.98v.166l-.001 5.513a.774.774 0 0 0 .388.677l5.842 3.372-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 8.487zm16.597 3.855l-5.843-3.37 2.02-1.166a.08.08 0 0 1 .071 0l4.83 2.79a4.504 4.504 0 0 1-.676 8.105v-5.681a.79.79 0 0 0-.402-.678zm2.01-4.254l-.142-.082-4.78-2.759a.776.776 0 0 0-.78 0L9.402 8.616V6.284a.069.069 0 0 1 .033-.061l4.838-2.793a4.498 4.498 0 0 1 6.674 4.807zM8.306 15.421l-2.02-1.164a.08.08 0 0 1-.038-.057V8.618a4.504 4.504 0 0 1 7.37-3.454l-.142.08-4.779 2.758a.795.795 0 0 0-.391.681v6.738zm1.053-4.004l2.64-1.524 2.64 1.524v3.048l-2.64 1.524-2.64-1.524z"/></svg>
-          </div>
-          <span class="font-bold text-[11px] sm:text-xs text-slate-800 whitespace-nowrap">ChatGPT (OpenAI)</span>
-        </div>
-
-        <!-- Google Gemini -->
-        <div class="flex items-center justify-center gap-2 px-2.5 py-2 sm:px-3 sm:py-2.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-indigo-500/50 hover:bg-indigo-50/40 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm">
-          <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z"/></svg>
-          </div>
-          <span class="font-bold text-[11px] sm:text-xs text-slate-800 whitespace-nowrap">Google Gemini</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ANIMAÇÃO UAU: LETREIRO NOTICIOSO INFINITO (EM DIRETO / LIVE TICKER TAPE) -->
-  <section class="py-3 sm:py-3.5 bg-slate-950 text-white overflow-hidden relative border-y border-emerald-500/30 shadow-lg shadow-emerald-950/20">
+    <!-- ANIMAÇÃO UAU: LETREIRO NOTICIOSO INFINITO (EM DIRETO / LIVE TICKER TAPE) -->
+  <section class="py-4 sm:py-5 bg-slate-950 text-white overflow-hidden relative border-y-2 border-emerald-500/40 shadow-xl shadow-emerald-950/30">
     <!-- Efeito fade nas laterais estilo broadcast -->
     <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none"></div>
     <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none"></div>
@@ -559,21 +501,21 @@
           <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
           EM DIRETO
         </span>
-        <span class="flex items-center gap-2 text-white"><span class="text-emerald-400 font-extrabold text-sm sm:text-base">214</span> Novos Contactos & Agendamentos esta semana</span>
+        <span class="flex items-center gap-2 text-white"><span class="text-emerald-400 font-extrabold text-sm sm:text-base">Operacional</span> Sistemas de Captação & Triagem Ativos em Portugal</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-emerald-300"><span class="text-base">⚡</span> 1.8s Tempo Médio de Resposta no WhatsApp</span>
+        <span class="flex items-center gap-2 text-emerald-300"><span class="text-base">⚡</span> Resposta Imediata e Qualificação de Leads no WhatsApp IA</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-white"><span class="text-base">🎙️</span> Chamada de Voz Atendida por IA em Setúbal (Há 3 min)</span>
+        <span class="flex items-center gap-2 text-white"><span class="text-base">🎙️</span> Atendimento por Voz IA Fluente sem Perda de Chamadas</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-teal-300"><span class="text-base">📈</span> ROAS 6.4x em Campanhas Meta & Google Maps</span>
+        <span class="flex items-center gap-2 text-teal-300"><span class="text-base">📈</span> Estrutura Completa de Tráfego Pago Meta & Google Maps</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-white"><span class="text-base">📍</span> Setúbal • Lisboa • Palmela • Montijo • Barreiro</span>
+        <span class="flex items-center gap-2 text-white"><span class="text-base">📍</span> Setúbal • Lisboa • Margem Sul • Todo o Território Nacional</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-emerald-400"><span class="text-base">💰</span> Custo Médio de € 1,18 por Cliente Qualificado</span>
+        <span class="flex items-center gap-2 text-emerald-400"><span class="text-base">🎯</span> Rastreamento Server-Side Meta CAPI & Microsoft Clarity IA</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-white"><span class="text-base">🛎️</span> 0 Chamadas Perdidas Fora de Horas</span>
+        <span class="flex items-center gap-2 text-white"><span class="text-base">🔄</span> Cerco Omnipresente e Retargeting Automático de Clientes</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-emerald-300"><span class="text-base">🚀</span> Entrega de Demonstração em até 24 Horas</span>
+        <span class="flex items-center gap-2 text-emerald-300"><span class="text-base">🚀</span> Demonstração Prática Personalizada para o Seu Negócio</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
       </div>
 
@@ -583,21 +525,21 @@
           <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
           EM DIRETO
         </span>
-        <span class="flex items-center gap-2 text-white"><span class="text-emerald-400 font-extrabold text-sm sm:text-base">214</span> Novos Contactos & Agendamentos esta semana</span>
+        <span class="flex items-center gap-2 text-white"><span class="text-emerald-400 font-extrabold text-sm sm:text-base">Operacional</span> Sistemas de Captação & Triagem Ativos em Portugal</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-emerald-300"><span class="text-base">⚡</span> 1.8s Tempo Médio de Resposta no WhatsApp</span>
+        <span class="flex items-center gap-2 text-emerald-300"><span class="text-base">⚡</span> Resposta Imediata e Qualificação de Leads no WhatsApp IA</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-white"><span class="text-base">🎙️</span> Chamada de Voz Atendida por IA em Setúbal (Há 3 min)</span>
+        <span class="flex items-center gap-2 text-white"><span class="text-base">🎙️</span> Atendimento por Voz IA Fluente sem Perda de Chamadas</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-teal-300"><span class="text-base">📈</span> ROAS 6.4x em Campanhas Meta & Google Maps</span>
+        <span class="flex items-center gap-2 text-teal-300"><span class="text-base">📈</span> Estrutura Completa de Tráfego Pago Meta & Google Maps</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-white"><span class="text-base">📍</span> Setúbal • Lisboa • Palmela • Montijo • Barreiro</span>
+        <span class="flex items-center gap-2 text-white"><span class="text-base">📍</span> Setúbal • Lisboa • Margem Sul • Todo o Território Nacional</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-emerald-400"><span class="text-base">💰</span> Custo Médio de € 1,18 por Cliente Qualificado</span>
+        <span class="flex items-center gap-2 text-emerald-400"><span class="text-base">🎯</span> Rastreamento Server-Side Meta CAPI & Microsoft Clarity IA</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-white"><span class="text-base">🛎️</span> 0 Chamadas Perdidas Fora de Horas</span>
+        <span class="flex items-center gap-2 text-white"><span class="text-base">🔄</span> Cerco Omnipresente e Retargeting Automático de Clientes</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
-        <span class="flex items-center gap-2 text-emerald-300"><span class="text-base">🚀</span> Entrega de Demonstração em até 24 Horas</span>
+        <span class="flex items-center gap-2 text-emerald-300"><span class="text-base">🚀</span> Demonstração Prática Personalizada para o Seu Negócio</span>
         <span class="text-emerald-500/60 font-mono">✦</span>
       </div>
     </div>
@@ -605,21 +547,21 @@
 
   <!-- OS 4 PILARES DE SERVIÇOS (GRID 2x2 MODERNA EM FUNDO BRANCO) -->
   <section id="servicos" class="py-24 bg-slate-50 relative border-b border-slate-200/80">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
       <div class="text-center max-w-2xl mx-auto mb-16">
         <div class="inline-block text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full uppercase tracking-wider mb-3">
           O Seu Ecossistema Completo
         </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Os 4 Pilares para o Seu Negócio Vender Mais
+          Os 6 Pilares da Máquina de Vendas 360°
         </h2>
         <p class="text-slate-600 text-base mt-3">
-          Tudo o que uma empresa em Portugal precisa para ter uma presença digital forte, profissional e que traz clientes de verdade.
+          O ecossistema completo de captação, atendimento inteligente 24/7, rastreamento invisível e perseguição multicanal para empresas em Portugal.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- PILAR 1: PÁGINAS WEB & GOOGLE MAPS -->
         <div class="bg-white border border-slate-200 rounded-2xl p-8 transition-all duration-300 group flex flex-col justify-between pillar-card">
@@ -654,7 +596,7 @@
 
           <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-emerald-700">
             <span>⚡ Entrega 48h • Sem Fidelização</span>
-            <a href="pilar-sites-ultrarrapidos.html" class="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-extrabold text-xs transition-all shadow-sm">
+            <a href="pilar-sites-ultrarrapidos.html" class="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-all shadow-md shadow-emerald-600/20">
               <span>Aceder à Página Dedicada & ROI →</span>
             </a>
           </div>
@@ -693,7 +635,7 @@
 
           <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-emerald-700">
             <span>💬 24h Ativo • Respostas em &lt; 2s</span>
-            <a href="pilar-atendente-ia-whatsapp.html" class="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-extrabold text-xs transition-all shadow-sm">
+            <a href="pilar-atendente-ia-whatsapp.html" class="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-all shadow-md shadow-emerald-600/20">
               <span>Aceder à Página Dedicada & ROI →</span>
             </a>
           </div>
@@ -771,7 +713,89 @@
 
           <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-emerald-700">
             <span>🎯 Alta Precisão • Raio de 5 a 15 km</span>
-            <a href="pilar-trafego-pago-local.html" class="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-900 hover:bg-emerald-600 text-white font-extrabold text-xs transition-all shadow-sm">
+            <a href="pilar-trafego-pago-local.html" class="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-all shadow-md shadow-emerald-600/20">
+              <span>Aceder à Página Dedicada & ROI →</span>
+            </a>
+          </div>
+        </div>
+
+      
+        <!-- PILAR 5: RASTREAMENTO AVANÇADO & MICROSOFT CLARITY IA -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 transition-all duration-300 group flex flex-col justify-between pillar-card">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              </div>
+              <span class="text-xs font-extrabold px-3 py-1 bg-slate-100 text-slate-700 rounded-full">Pilar 05</span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-900 mb-3">Rastreamento & Microsoft Clarity IA</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Rastreamento direto no servidor (Meta CAPI + Google Tag Manager) integrado com a inteligência do <strong>Microsoft Clarity</strong>. Mapas de calor e gravações reais para entender o comportamento exato do visitante e ajustar o funil com precisão cirúrgica.
+            </p>
+
+            <ul class="space-y-3 text-sm text-slate-700 font-medium">
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
+                Mapas de calor e gravações de navegação com Microsoft Clarity IA
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
+                Imune a bloqueadores de cookies e atualizações do iPhone/iOS (CAPI)
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
+                Diagnóstico de cliques de frustração e rastreamento de compras reais
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-emerald-700">
+            <span>🎯 100% dos Dados Blindados</span>
+            <a href="pilar-rastreamento-dados.html" class="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-all shadow-md shadow-emerald-600/20">
+              <span>Aceder à Página Dedicada & ROI →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PILAR 6: O CERCO DIGITAL & RETARGETING OMNIPRESENTE -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 transition-all duration-300 group flex flex-col justify-between pillar-card">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-extrabold px-3 py-1 bg-slate-100 text-slate-700 rounded-full">Pilar 06</span>
+                <span class="text-xs font-extrabold px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full badge-shimmer">Omnipresença ✨</span>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-900 mb-3">Retargeting & Cerco Omnipresente</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              O lead visitou o seu site ou conversou no WhatsApp e não comprou na hora? Ele passa a ver a sua marca no Instagram, Facebook, Google e Email até fechar negócio, gerando percepção de autoridade de multinacional.
+            </p>
+
+            <ul class="space-y-3 text-sm text-slate-700 font-medium">
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
+                Anúncios de perseguição no Feed, Stories, Reels e YouTube
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
+                Automação de emails e mensagens de recuperação de clientes frios
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
+                Autoridade inabalável: o cliente sente que a sua empresa é gigante
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-emerald-700">
+            <span>🔁 Recuperação Ativa • Zero Desperdício</span>
+            <a href="pilar-retargeting-omnipresente.html" class="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs transition-all shadow-md shadow-emerald-600/20">
               <span>Aceder à Página Dedicada & ROI →</span>
             </a>
           </div>
@@ -1453,6 +1477,7 @@
     }
   </script>
 
+  
   <!-- COMO FUNCIONA (PASSO A PASSO TRANSPARENTE) -->
   <section id="como-funciona" class="py-20 bg-slate-50 border-t border-slate-200/80">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
@@ -1684,6 +1709,438 @@
     </div>
   </section>
 
+  <!-- INFRAESTRUTURA TECNOLÓGICA DE ELITE (29 TECNOLOGIAS QUE SUSTENTAM A MÁQUINA 360°) -->
+<!-- FAIXA DE TECNOLOGIAS & PLATAFORMAS INTEGRADAS (TRUST BAR COM MARQUEE DE 29 MARCAS) -->
+  <section class="py-7 bg-white border-t border-slate-200/80 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-4 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-extrabold uppercase tracking-widest text-slate-600">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Tecnologias & Infraestrutura Enterprise Dominadas por André Correia</span>
+      </div>
+    </div>
+    
+    <!-- Efeito fade nas laterais estilo Vercel / Linear -->
+    <div class="absolute left-0 top-12 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-12 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+    <div class="marquee-track flex whitespace-nowrap items-center gap-3 select-none">
+      <!-- Bloco 1 -->
+      <div class="flex items-center gap-3 shrink-0 pr-3">
+        
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">⚡</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Antigravity</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">AI & Orchestration</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">✦</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Gemini</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Multimodal GenAI</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">⚙️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">ComfyUI</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Local AI Engine</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🎬</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Remotion</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Programmatic Video</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🐍</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Python</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Backend & Data</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🔗</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">JSON APIs</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Real-Time Webhooks</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">📘</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">TypeScript</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Enterprise Code</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">☕</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Java / JavaScript</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Scalable Systems</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🌐</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">HTML5 & CSS3</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Modern Web Standards</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🎨</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Tailwind CSS</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Utility-First UI</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🐳</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Docker</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Container Security</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">👥</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Meta Facebook</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Targeted Paid Traffic</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">📸</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Instagram</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Social Selling Direct</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">💬</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">WhatsApp Business</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Official API 24/7</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">👁️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Microsoft Clarity IA</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">User Session Recording</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🤖</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">ChatGPT (OpenAI)</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Conversational Agents</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">✨</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Figma</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">High-End UX/UI</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🏷️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Tag Manager</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Conversion Tracking</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">▶️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">YouTube</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Video Distribution</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">📍</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Meu Negócio</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Local SEO Rank</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🗺️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Maps</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Geo Targeting</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🦙</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Ollama (Local LLM)</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Zero API Cost</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🤗</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Hugging Face</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Open-Source Models</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🟩</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">NVIDIA RTX</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Hardware Acceleration</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">💻</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">OpenCode</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Agent Standard</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🐙</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">GitHub</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Version Control & CI/CD</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">📝</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">VS Code</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Pro Dev Runtime</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🤖</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Pinokio</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Autonomous AI Hub</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🔥</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Phoenix Code</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Elite IDE Workspace</span>
+          </div>
+        </div>
+      </div>
+      <!-- Bloco 2 (Clone Idêntico para Loop Contínuo) -->
+      <div class="flex items-center gap-3 shrink-0 pr-3" aria-hidden="true">
+        
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">⚡</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Antigravity</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">AI & Orchestration</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">✦</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Gemini</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Multimodal GenAI</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">⚙️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">ComfyUI</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Local AI Engine</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🎬</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Remotion</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Programmatic Video</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🐍</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Python</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Backend & Data</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🔗</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">JSON APIs</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Real-Time Webhooks</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">📘</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">TypeScript</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Enterprise Code</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">☕</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Java / JavaScript</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Scalable Systems</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🌐</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">HTML5 & CSS3</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Modern Web Standards</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🎨</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Tailwind CSS</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Utility-First UI</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🐳</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Docker</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Container Security</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">👥</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Meta Facebook</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Targeted Paid Traffic</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">📸</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Instagram</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Social Selling Direct</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">💬</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">WhatsApp Business</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Official API 24/7</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">👁️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Microsoft Clarity IA</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">User Session Recording</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🤖</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">ChatGPT (OpenAI)</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Conversational Agents</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">✨</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Figma</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">High-End UX/UI</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🏷️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Tag Manager</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Conversion Tracking</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">▶️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">YouTube</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Video Distribution</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">📍</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Meu Negócio</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Local SEO Rank</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🗺️</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Google Maps</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Geo Targeting</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🦙</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Ollama (Local LLM)</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Zero API Cost</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🤗</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Hugging Face</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Open-Source Models</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🟩</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">NVIDIA RTX</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Hardware Acceleration</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">💻</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">OpenCode</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Agent Standard</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🐙</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">GitHub</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Version Control & CI/CD</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">📝</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">VS Code</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Pro Dev Runtime</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🤖</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Pinokio</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Autonomous AI Hub</span>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-500/50 hover:bg-emerald-50/30 transition-all duration-200 group cursor-default shadow-xs hover:shadow-sm shrink-0">
+          <span class="text-base group-hover:scale-110 transition-transform">🔥</span>
+          <div class="flex flex-col text-left">
+            <span class="font-bold text-xs text-slate-800 group-hover:text-emerald-700 transition-colors whitespace-nowrap">Phoenix Code</span>
+            <span class="text-[9px] font-medium text-slate-400 whitespace-nowrap">Elite IDE Workspace</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER RICO & ESTRUTURADO -->
   <footer class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -1716,12 +2173,12 @@
         <div>
           <h4 class="text-xs font-bold uppercase tracking-widest text-white mb-4">Soluções Digitais</h4>
           <ul class="space-y-2.5 text-xs text-slate-400">
-            <li><a href="#servicos" class="hover:text-emerald-400 transition-colors">Páginas Web de Alta Conversão</a></li>
-            <li><a href="#servicos" class="hover:text-emerald-400 transition-colors">Agendamentos no WhatsApp</a></li>
-            <li><a href="#servicos" class="hover:text-emerald-400 transition-colors">Social Selling (Instagram & Facebook)</a></li>
-            <li><a href="#servicos" class="hover:text-emerald-400 transition-colors">Atendente de Voz com IA</a></li>
-            <li><a href="#servicos" class="hover:text-emerald-400 transition-colors">Anúncios Locais Meta & Google</a></li>
-            <li><a href="#servicos" class="hover:text-emerald-400 transition-colors">Otimização para Google Maps</a></li>
+            <li><a href="pilar-sites-ultrarrapidos.html" class="hover:text-emerald-400 transition-colors">Pilar 1: Sites & Lojas Ultrarrápidas</a></li>
+            <li><a href="pilar-atendente-ia-whatsapp.html" class="hover:text-emerald-400 transition-colors">Pilar 2: Atendente IA no WhatsApp</a></li>
+            <li><a href="pilar-atendente-voz-24h.html" class="hover:text-emerald-400 transition-colors">Pilar 3: Atendente de Voz IA 24h</a></li>
+            <li><a href="pilar-trafego-pago-local.html" class="hover:text-emerald-400 transition-colors">Pilar 4: Tráfego Pago & Domínio Local</a></li>
+            <li><a href="pilar-rastreamento-dados.html" class="hover:text-emerald-400 transition-colors">Pilar 5: Rastreamento & Microsoft Clarity IA</a></li>
+            <li><a href="pilar-retargeting-omnipresente.html" class="hover:text-emerald-400 transition-colors">Pilar 6: Retargeting & Cerco Omnipresente</a></li>
           </ul>
         </div>
 
@@ -1810,7 +2267,7 @@
 
   <!-- NOTIFICAÇÃO FLUTUANTE DE PROVA SOCIAL (ESTILO PÍLULA IOS) -->
   <div id="social-toast" 
-       class="fixed bottom-4 left-4 right-4 sm:right-auto sm:max-w-xs z-40 bg-slate-900/95 backdrop-blur-md text-white border border-slate-700/80 shadow-2xl rounded-2xl p-3 transform translate-y-24 opacity-0 transition-all duration-500 pointer-events-none flex items-center justify-between gap-3">
+       class="fixed bottom-20 left-6 sm:bottom-24 sm:left-8 max-sm:hidden sm:max-w-xs z-30 bg-slate-900/95 backdrop-blur-md text-white border border-slate-700/80 shadow-2xl rounded-2xl p-3 transform translate-y-24 opacity-0 transition-all duration-500 pointer-events-none flex items-center justify-between gap-3">
     <div class="flex items-center gap-3 min-w-0">
       <div id="toast-icon-wrapper" class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-base shrink-0">
         <span id="toast-icon">💬</span>

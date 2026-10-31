@@ -3,23 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moodboard — Direção Visual | André Correia (UFCD 10947)</title>
+  <title>Moodboard — Direção Visual & Universo Estético (Figma Style) | André Correia (UFCD 10947)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-canvas: #f8fafc;
-      --bg-board: #ffffff;
-      --text-main: #0f172a;
+      --figma-bg: #f4f5f8;
+      --dot-color: #cbd5e1;
+      --panel-bg: rgba(255, 255, 255, 0.95);
+      --border-subtle: #e2e8f0;
+      --text-dark: #0f172a;
       --text-muted: #64748b;
-      --border-color: #e2e8f0;
-      --primary: #10b981;
-      --primary-hover: #059669;
-      --primary-light: #ecfdf5;
-      --card-bg: #ffffff;
-      --card-border: #e2e8f0;
-      --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+      --emerald: #10b981;
+      --emerald-dark: #059669;
+      --emerald-light: #ecfdf5;
+      
+      /* Post-it palette */
+      --note-yellow: #fef08a;
+      --note-yellow-border: #fde047;
+      --note-yellow-text: #713f12;
+
+      --note-emerald: #a7f3d0;
+      --note-emerald-border: #6ee7b7;
+      --note-emerald-text: #064e3b;
+
+      --note-blue: #bae6fd;
+      --note-blue-border: #7dd3fc;
+      --note-blue-text: #0c4a6e;
+
+      --note-peach: #fed7aa;
+      --note-peach-border: #fdba74;
+      --note-peach-text: #7c2d12;
+
+      --note-purple: #ddd6fe;
+      --note-purple-border: #c4b5fd;
+      --note-purple-text: #4c1d95;
     }
 
     * {
@@ -29,712 +48,1076 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-canvas);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      padding-bottom: 80px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--figma-bg);
+      background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding-bottom: 120px;
     }
 
-    /* Top Academic Header */
-    .top-bar {
-      background: #0f172a;
-      color: #94a3b8;
+    /* Figma Top Bar */
+    .figma-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #1e1e1e;
+      color: #ffffff;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
       font-size: 0.85rem;
-      padding: 12px 24px;
+      border-bottom: 1px solid #333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .figma-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .figma-logo-icon {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .figma-logo-badge {
+      background: linear-gradient(135deg, #0acf83, #1abcfe, #f24e1e, #ff7262);
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .figma-file-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    .figma-file-tag {
+      background: #2a2a2a;
+      border: 1px solid #444;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      color: #10b981;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .figma-topbar-nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .figma-nav-link {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .figma-nav-link:hover {
+      background: #2d3748;
+      color: #fff;
+    }
+
+    .figma-btn-share {
+      background: #0d99ff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .figma-btn-share:hover {
+      background: #0b85de;
+    }
+
+    /* Sub-bar Academic Context */
+    .academic-banner {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 10px 24px;
+      font-size: 0.82rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #1e293b;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      border-bottom: 1px solid #334155;
     }
 
-    .top-bar span strong {
-      color: #f8fafc;
+    .academic-banner strong {
+      color: #fff;
     }
 
-    .top-links {
-      display: flex;
-      gap: 16px;
-    }
-
-    .top-links a {
-      color: #10b981;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .top-links a:hover {
+    .academic-badge {
+      background: rgba(16, 185, 129, 0.2);
       color: #34d399;
-      text-decoration: underline;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
     }
 
-    /* Main Container */
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 32px 24px;
-    }
-
-    /* Board Header */
-    .board-header {
-      background: var(--bg-board);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 36px 40px;
-      margin-bottom: 32px;
-      box-shadow: var(--card-shadow);
+    /* Canvas Wrapper */
+    .figjam-canvas {
+      max-width: 1500px;
+      margin: 32px auto;
+      padding: 0 24px;
       position: relative;
-      overflow: hidden;
     }
 
-    .board-header::before {
+    /* Canvas Frame Section Header */
+    .canvas-section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .canvas-section-title::after {
       content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #10b981, #0f172a);
+      flex: 1;
+      height: 1px;
+      background: #cbd5e1;
+      border-style: dashed;
     }
 
-    .badge-pill {
+    /* Main Board Banner Frame */
+    .board-hero-frame {
+      background: #ffffff;
+      border: 2px dashed #94a3b8;
+      border-radius: 20px;
+      padding: 32px 36px;
+      margin-bottom: 40px;
+      position: relative;
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+    }
+
+    .board-tag-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--primary-light);
-      color: #065f46;
-      padding: 6px 14px;
-      border-radius: 9999px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 4px 12px;
+      border-radius: 6px;
       font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
       font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 12px;
     }
 
-    h1 {
+    .board-hero-frame h1 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 2.3rem;
-      font-weight: 800;
-      color: var(--text-main);
-      letter-spacing: -0.02em;
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.03em;
       margin-bottom: 10px;
     }
 
-    .board-lead {
+    .board-hero-frame p {
       font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 860px;
+      color: #475569;
+      max-width: 900px;
+      line-height: 1.6;
     }
 
-    /* Canvas Grid */
-    .canvas-grid {
+    /* Copy Button Tool inside board */
+    .copy-kit-bar {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-action-copy {
+      background: #0f172a;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-action-copy:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+    }
+
+    .btn-action-ui {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-action-ui:hover {
+      background: #d1fae5;
+    }
+
+    /* GRID DO MOODBOARD FIGJAM */
+    .mood-masonry-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      gap: 24px;
+      gap: 28px;
+      margin-bottom: 48px;
     }
 
-    .col-12 { grid-column: span 12; }
-    .col-8 { grid-column: span 8; }
-    .col-7 { grid-column: span 7; }
-    .col-6 { grid-column: span 6; }
-    .col-5 { grid-column: span 5; }
-    .col-4 { grid-column: span 4; }
+    .col-span-12 { grid-column: span 12; }
+    .col-span-8 { grid-column: span 8; }
+    .col-span-7 { grid-column: span 7; }
+    .col-span-6 { grid-column: span 6; }
+    .col-span-5 { grid-column: span 5; }
+    .col-span-4 { grid-column: span 4; }
+    .col-span-3 { grid-column: span 3; }
 
-    /* Sticky Note / Canvas Card */
-    .mood-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: var(--card-shadow);
+    /* STICKY NOTES (POST-ITS FIGJAM REALISTAS) */
+    .sticky-note {
+      padding: 24px 22px;
+      border-radius: 4px;
+      box-shadow: 2px 10px 20px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0,0,0,0.04);
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
-      position: relative;
+      justify-content: space-between;
+      min-height: 190px;
     }
 
-    .mood-card-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.15rem;
+    .sticky-note:hover {
+      transform: scale(1.02) rotate(0deg) !important;
+      box-shadow: 4px 18px 30px rgba(0, 0, 0, 0.12);
+      z-index: 10;
+    }
+
+    /* Efeito de fita adesiva (Washi Tape) */
+    .washi-tape {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px dashed rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(2px);
+      z-index: 2;
+    }
+
+    .note-author {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
       font-weight: 700;
-      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.75;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-color);
+      gap: 4px;
     }
 
-    .mood-card-title svg {
-      width: 22px;
-      height: 22px;
-      color: var(--primary);
+    .note-text {
+      font-family: 'Caveat', cursive;
+      font-size: 1.45rem;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
-    /* Color Swatches */
-    .color-swatches-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 16px;
+    .note-footer {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      opacity: 0.7;
+      text-align: right;
     }
 
-    .swatch-item {
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      overflow: hidden;
+    /* Cores dos Post-its */
+    .note-yellow {
+      background: var(--note-yellow);
+      border: 1px solid var(--note-yellow-border);
+      color: var(--note-yellow-text);
+      transform: rotate(-1.5deg);
+    }
+
+    .note-emerald {
+      background: var(--note-emerald);
+      border: 1px solid var(--note-emerald-border);
+      color: var(--note-emerald-text);
+      transform: rotate(2deg);
+    }
+
+    .note-blue {
+      background: var(--note-blue);
+      border: 1px solid var(--note-blue-border);
+      color: var(--note-blue-text);
+      transform: rotate(-1deg);
+    }
+
+    .note-peach {
+      background: var(--note-peach);
+      border: 1px solid var(--note-peach-border);
+      color: var(--note-peach-text);
+      transform: rotate(1.8deg);
+    }
+
+    .note-purple {
+      background: var(--note-purple);
+      border: 1px solid var(--note-purple-border);
+      color: var(--note-purple-text);
+      transform: rotate(-2deg);
+    }
+
+    /* MOOD PHOTO POLAROIDS / RECORTES DE REVISTA EDITORIAL */
+    .polaroid-card {
       background: #ffffff;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 12px 12px 20px 12px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e2e8f0;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .swatch-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 18px -4px rgba(15, 23, 42, 0.1);
+    .polaroid-card:hover {
+      transform: translateY(-4px) rotate(0deg) !important;
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.14);
+      z-index: 10;
     }
 
-    .swatch-color {
-      height: 72px;
+    .polaroid-img-wrapper {
       width: 100%;
+      height: 220px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #f1f5f9;
       position: relative;
     }
 
-    .swatch-info {
-      padding: 10px 12px;
+    .polaroid-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
     }
 
-    .swatch-name {
+    .polaroid-card:hover .polaroid-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .polaroid-caption {
+      margin-top: 14px;
+      padding: 0 4px;
+    }
+
+    .polaroid-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
       font-weight: 700;
-      font-size: 0.82rem;
-      color: var(--text-main);
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .polaroid-desc {
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    .polaroid-tag {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: #10b981;
+      background: #ecfdf5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* COLOR SWATCH CHIPS (PANTONE STYLE) */
+    .color-chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    .pantone-chip {
+      flex: 1 1 140px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      transition: transform 0.2s;
+    }
+
+    .pantone-chip:hover {
+      transform: translateY(-4px);
+    }
+
+    .pantone-color-block {
+      height: 100px;
+      width: 100%;
+    }
+
+    .pantone-meta {
+      padding: 12px;
+      background: #fff;
+    }
+
+    .pantone-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #0f172a;
       margin-bottom: 2px;
     }
 
-    .swatch-hex {
+    .pantone-hex {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #64748b;
     }
 
-    .swatch-role {
-      font-size: 0.7rem;
-      color: #059669;
+    .pantone-role {
+      font-size: 0.68rem;
+      color: #10b981;
       font-weight: 600;
       margin-top: 4px;
     }
 
-    /* Typography Specimens */
-    .type-specimen {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    /* TYPOGRAPHY SWISS POSTER FRAME */
+    .swiss-poster-frame {
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.2);
     }
 
-    .type-row {
-      padding: 14px 18px;
-      background: #f8fafc;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-    }
-
-    .type-meta {
+    .swiss-header-meta {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+      color: #94a3b8;
       display: flex;
       justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 10px;
+      margin-bottom: 24px;
     }
 
-    .type-sample-display {
+    .swiss-specimen-large {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.7rem;
-      font-weight: 800;
-      line-height: 1.2;
-      color: var(--text-main);
-    }
-
-    .type-sample-body {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: var(--text-main);
-    }
-
-    .type-sample-mono {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      color: #0f172a;
-    }
-
-    /* Keywords Post-it Wall */
-    .tags-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .postit-tag {
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
-      border: 1px solid rgba(0,0,0,0.06);
-    }
-
-    .tag-emerald { background: #d1fae5; color: #065f46; border-color: #a7f3d0; }
-    .tag-slate { background: #e2e8f0; color: #1e293b; border-color: #cbd5e1; }
-    .tag-neutral { background: #f1f5f9; color: #334155; border-color: #e2e8f0; }
-    .tag-white { background: #ffffff; color: #0f172a; border-color: #cbd5e1; }
-
-    /* Visual Aesthetic Cards (Mockups / Diagrams) */
-    .mockup-preview {
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      overflow: hidden;
-      background: #ffffff;
-      margin-top: 10px;
-    }
-
-    .mockup-header {
-      background: #f1f5f9;
-      padding: 8px 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .circle {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #cbd5e1;
-    }
-
-    .circle.red { background: #fca5a5; }
-    .circle.yellow { background: #fde047; }
-    .circle.green { background: #86efac; }
-
-    .mockup-body {
-      padding: 24px;
-      background: #ffffff;
-    }
-
-    .editorial-hero-sketch {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .editorial-badge-sketch {
-      width: 140px;
-      height: 18px;
-      background: #ecfdf5;
-      border-radius: 999px;
-    }
-
-    .editorial-title-sketch {
-      width: 85%;
-      height: 28px;
-      background: #0f172a;
-      border-radius: 6px;
-    }
-
-    .editorial-subtitle-sketch {
-      width: 65%;
-      height: 14px;
-      background: #94a3b8;
-      border-radius: 4px;
-    }
-
-    .editorial-buttons-row {
-      display: flex;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .btn-mockup-primary {
-      background: #10b981;
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
       color: #ffffff;
-      padding: 10px 20px;
-      border-radius: 12px;
+    }
+
+    .swiss-specimen-large span {
+      color: #10b981;
+    }
+
+    .swiss-specimen-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .swiss-specimen-mono {
+      font-family: 'JetBrains Mono', monospace;
+      background: #1e293b;
+      padding: 12px 16px;
+      border-radius: 8px;
       font-size: 0.8rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      color: #34d399;
+      border: 1px solid #334155;
+      display: inline-block;
     }
 
-    .btn-mockup-secondary {
-      background: #f1f5f9;
-      color: #0f172a;
-      border: 1px solid #e2e8f0;
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    /* Design Principles Checklist */
-    .principles-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .principles-list li {
+    /* CURSORES COLABORATIVOS DO FIGMA (SIMULAÇÃO) */
+    .figma-cursor {
+      position: absolute;
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      font-size: 0.92rem;
-      color: var(--text-main);
+      gap: 6px;
+      z-index: 50;
+      pointer-events: none;
+      animation: floatCursor 6s ease-in-out infinite;
     }
 
-    .principles-list svg {
-      width: 20px;
-      height: 20px;
-      color: #10b981;
-      flex-shrink: 0;
-      margin-top: 2px;
+    .cursor-pointer-svg {
+      width: 18px;
+      height: 18px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
 
-    /* Footer Navigation */
-    .footer-bar {
-      margin-top: 40px;
+    .cursor-badge {
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .cursor-andre {
+      top: 140px;
+      right: 60px;
+    }
+    .cursor-andre .cursor-badge { background: #10b981; }
+
+    .cursor-marta {
+      bottom: 220px;
+      left: 80px;
+    }
+    .cursor-marta .cursor-badge { background: #8b5cf6; }
+
+    @keyframes floatCursor {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(12px, -8px); }
+    }
+
+    /* FIGJAM FLOATING BOTTOM TOOLBAR */
+    .figjam-toolbar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 24px 32px;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-radius: 14px;
+      padding: 6px 10px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-left {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .btn-emerald {
-      background: #10b981;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 12px 24px;
-      border-radius: 12px;
-      transition: background 0.2s, transform 0.1s;
-      display: inline-flex;
       align-items: center;
       gap: 8px;
+      z-index: 999;
     }
 
-    .btn-emerald:hover {
-      background: #059669;
-      transform: translateY(-1px);
+    .tool-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
     }
 
-    .btn-outline {
-      background: #ffffff;
+    .tool-btn:hover {
+      background: #f1f5f9;
       color: #0f172a;
-      border: 1px solid var(--border-color);
-      text-decoration: none;
+    }
+
+    .tool-btn.active {
+      background: #0d99ff;
+      color: #ffffff;
+    }
+
+    .toolbar-divider {
+      width: 1px;
+      height: 24px;
+      background: #e2e8f0;
+      margin: 0 4px;
+    }
+
+    /* Copied toast */
+    #copy-toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
       font-weight: 600;
-      font-size: 0.9rem;
-      padding: 12px 22px;
-      border-radius: 12px;
-      transition: all 0.2s;
-      display: inline-flex;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 1000;
+      display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .btn-outline:hover {
-      background: #f8fafc;
-      border-color: #cbd5e1;
+    #copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
 
     @media (max-width: 992px) {
-      .col-8, .col-7, .col-6, .col-5, .col-4 {
+      .col-span-8, .col-span-7, .col-span-6, .col-span-5, .col-span-4, .col-span-3 {
         grid-column: span 12;
       }
-      h1 { font-size: 1.8rem; }
+      .figma-cursor { display: none; }
+      .board-hero-frame h1 { font-size: 1.8rem; }
+      .swiss-specimen-large { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Academic Context Bar -->
-  <div class="top-bar">
-    <div>
-      <strong>IEFP Setúbal</strong> | UFCD 10947: Websites No-Code | Formadora: <strong>Marta Angelina Ferreira Padilha</strong>
+  <!-- Top Figma App Header -->
+  <header class="figma-topbar">
+    <div class="figma-topbar-left">
+      <div class="figma-logo-icon">
+        <div class="figma-logo-badge">F</div>
+        <span>FigJam / Canvas</span>
+      </div>
+      <div class="figma-file-name">
+        <span>UFCD 10947 — Moodboard André Correia</span>
+        <span class="figma-file-tag">Direção Visual Framer</span>
+      </div>
     </div>
-    <div class="top-links">
-      <a href="/briefing-ufcd10947.html">Briefing (Tarefa 1)</a>
-      <a href="/sitemap.html">Sitemap (Tarefa 1)</a>
-      <a href="/ui-kit.html">UI Kit (Tarefa 2)</a>
-      <a href="/Matriz_de_Conteudos.xlsx">Matriz Excel</a>
+    <div class="figma-topbar-nav">
+      <a href="/briefing-ufcd10947.html" class="figma-nav-link">Briefing</a>
+      <a href="/sitemap.html" class="figma-nav-link">Sitemap</a>
+      <a href="/ui-kit.html" class="figma-nav-link" style="color: #34d399; font-weight: 600;">UI Kit / Guia</a>
+      <a href="/Matriz_de_Conteudos.xlsx" class="figma-nav-link">Excel Matriz</a>
+      <button class="figma-btn-share" onclick="copyFullBoardData()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        Copiar Material
+      </button>
+    </div>
+  </header>
+
+  <!-- Contexto Académico IEFP -->
+  <div class="academic-banner">
+    <div>
+      🎓 <strong>IEFP Setúbal</strong> | UFCD 10947: Websites No-Code | Formadora: <strong>Marta Angelina Ferreira Padilha</strong>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <span class="academic-badge">Entregável 1 — Tarefa 2 (Oficial)</span>
+      <span style="font-size: 0.75rem; color: #94a3b8;">Formando: <strong>André Correia</strong></span>
     </div>
   </div>
 
-  <div class="container">
-    
-    <!-- Board Header -->
-    <header class="board-header">
-      <div class="badge-pill">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
-        Entregável 1 — Tarefa 2
+  <!-- Simulated Figma Live Cursors -->
+  <div class="figma-cursor cursor-andre">
+    <svg class="cursor-pointer-svg" viewBox="0 0 24 24" fill="#10b981"><path d="M4 0l16 12-7 2-4 9-5-23z"/></svg>
+    <div class="cursor-badge">André Correia (Designer)</div>
+  </div>
+
+  <div class="figma-cursor cursor-marta">
+    <svg class="cursor-pointer-svg" viewBox="0 0 24 24" fill="#8b5cf6"><path d="M4 0l16 12-7 2-4 9-5-23z"/></svg>
+    <div class="cursor-badge">Marta Padilha (IEFP Review)</div>
+  </div>
+
+  <!-- Canvas Container -->
+  <main class="figjam-canvas">
+
+    <!-- Frame 0: Header & Objetivos -->
+    <section class="board-hero-frame">
+      <div class="board-tag-pill">
+        <span>#FIGJAM-CANVAS-01</span> • <span>ESTILO COLAGEM & REFERÊNCIAS VISUAIS</span>
       </div>
       <h1>Moodboard: Direção Visual & Universo Estético</h1>
-      <p class="board-lead">
-        Painel conceptual e estético para o portefólio pessoal de <strong>André Correia</strong>. Define o tom, a atmosfera e os fundamentos formais para a construção do website na plataforma Framer sob rigor editorial e minimalismo contemporâneo.
+      <p>
+        Painel de inspiração e colagem visual para o portefólio editorial de <strong>André Correia</strong>. 
+        Reúne referências visuais de arquitetura contemporânea, design editorial suíço, paleta cromática, 
+        notas adesivas conceituais e tipografia, alinhado aos objetivos pedagógicos da <strong>UFCD 10947</strong>.
       </p>
-    </header>
 
-    <!-- Canvas Grid -->
-    <main class="canvas-grid">
-
-      <!-- Box 1: Conceito & Atmosfera Visual -->
-      <section class="mood-card col-7">
-        <h2 class="mood-card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          1. Atmosfera & Personalidade Visual
-        </h2>
-        <p style="font-size: 0.95rem; color: #475569; margin-bottom: 20px;">
-          A linguagem visual afasta-se do ruído visual comum em agências e foca-se na <strong>clareza editorial</strong>, no <strong>respiro de espaços negativos</strong> e no <strong>rigor de engenharia</strong>. Transmite confiança a decisores empresariais e clientes que procuram soluções de automação e inteligência artificial robustas.
-        </p>
-        
-        <div class="tags-cloud">
-          <div class="postit-tag tag-emerald">
-            <span>●</span> Clareza Editorial
-          </div>
-          <div class="postit-tag tag-slate">
-            <span>●</span> Minimalismo Moderno
-          </div>
-          <div class="postit-tag tag-neutral">
-            <span>●</span> Rigor Técnico
-          </div>
-          <div class="postit-tag tag-white">
-            <span>●</span> Elegância Funcional
-          </div>
-          <div class="postit-tag tag-emerald">
-            <span>●</span> Confiança Institucional
-          </div>
-          <div class="postit-tag tag-neutral">
-            <span>●</span> Foco em Resultados
-          </div>
-        </div>
-      </section>
-
-      <!-- Box 2: Princípios Diretivos de Design -->
-      <section class="mood-card col-5">
-        <h2 class="mood-card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          2. Regras de Ouro do Design
-        </h2>
-        <ul class="principles-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <div>
-              <strong>Consistência Transversal:</strong> Botões, tipografia e raios de curvatura idênticos em todas as 5 páginas (regra da formadora).
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <div>
-              <strong>Hierarquia de Leitura:</strong> Contraste expressivo entre títulos de impacto (H1/H2) e corpos de texto arejados.
-            </div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <div>
-              <strong>Design Baseado em 8px:</strong> Alinhamento milimétrico em grelhas e espaçamentos múltiplos de 8.
-            </div>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Box 3: Paleta Cromática de Referência -->
-      <section class="mood-card col-12">
-        <h2 class="mood-card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0 0 20v-20z"/></svg>
-          3. Paleta Cromática Oficial (System Tokens)
-        </h2>
-        <div class="color-swatches-grid">
-          
-          <div class="swatch-item">
-            <div class="swatch-color" style="background-color: #10b981;"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Verde Esmeralda</div>
-              <div class="swatch-hex">#10b981</div>
-              <div class="swatch-role">Acento & Botão Primário</div>
-            </div>
-          </div>
-
-          <div class="swatch-item">
-            <div class="swatch-color" style="background-color: #059669;"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Esmeralda Dark</div>
-              <div class="swatch-hex">#059669</div>
-              <div class="swatch-role">Hover & Interatividade</div>
-            </div>
-          </div>
-
-          <div class="swatch-item">
-            <div class="swatch-color" style="background-color: #ecfdf5;"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Esmeralda Soft</div>
-              <div class="swatch-hex">#ecfdf5</div>
-              <div class="swatch-role">Badges & Destaques</div>
-            </div>
-          </div>
-
-          <div class="swatch-item">
-            <div class="swatch-color" style="background-color: #0f172a;"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Cinza Ardósia</div>
-              <div class="swatch-hex">#0f172a</div>
-              <div class="swatch-role">Tipografia Principal</div>
-            </div>
-          </div>
-
-          <div class="swatch-item">
-            <div class="swatch-color" style="background-color: #64748b;"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Ardósia Médio</div>
-              <div class="swatch-hex">#64748b</div>
-              <div class="swatch-role">Texto de Apoio / Meta</div>
-            </div>
-          </div>
-
-          <div class="swatch-item">
-            <div class="swatch-color" style="background-color: #f1f5f9;"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Cinza Neutro</div>
-              <div class="swatch-hex">#f1f5f9</div>
-              <div class="swatch-role">Botão Secundário / Fundo</div>
-            </div>
-          </div>
-
-          <div class="swatch-item">
-            <div class="swatch-color" style="background-color: #ffffff; border-bottom: 1px solid #e2e8f0;"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Branco Puro</div>
-              <div class="swatch-hex">#ffffff</div>
-              <div class="swatch-role">Fundo Principal & Cards</div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Box 4: Tipografia de Referência -->
-      <section class="mood-card col-6">
-        <h2 class="mood-card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg>
-          4. Tipografia de Referência
-        </h2>
-        <div class="type-specimen">
-          
-          <div class="type-row">
-            <div class="type-meta">
-              <span>Plus Jakarta Sans — Bold / 800</span>
-              <span>Títulos & Display (H1, H2)</span>
-            </div>
-            <div class="type-sample-display">
-              Arquitetura Digital & IA de Voz
-            </div>
-          </div>
-
-          <div class="type-row">
-            <div class="type-meta">
-              <span>Inter — Regular & Medium / 400, 500</span>
-              <span>Corpo Editorial & Artigos</span>
-            </div>
-            <div class="type-sample-body">
-              Projetos desenhados para otimizar processos reais de atendimento, triagem comercial e eficiência operacional em pequenas e médias empresas.
-            </div>
-          </div>
-
-          <div class="type-row">
-            <div class="type-meta">
-              <span>JetBrains Mono — 500</span>
-              <span>Badges, Metadados & Código</span>
-            </div>
-            <div class="type-sample-mono">
-              STATUS: CONCLUÍDO | LATÊNCIA: &lt; 800ms
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Box 5: Diagramação & Composição de Interface -->
-      <section class="mood-card col-6">
-        <h2 class="mood-card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-          5. Referência de Composição no Framer
-        </h2>
-        <p style="font-size: 0.9rem; color: #475569; margin-bottom: 12px;">
-          Mockup esquemático demonstrando a aplicação harmoniosa da paleta, proporções e botões padronizados no Hero da página Home:
-        </p>
-
-        <div class="mockup-preview">
-          <div class="mockup-header">
-            <span class="circle red"></span>
-            <span class="circle yellow"></span>
-            <span class="circle green"></span>
-            <span style="font-size: 0.72rem; color: #94a3b8; margin-left: 8px; font-family: 'JetBrains Mono', monospace;">framer-preview / home</span>
-          </div>
-          <div class="mockup-body">
-            <div class="editorial-hero-sketch">
-              <div class="editorial-badge-sketch"></div>
-              <div class="editorial-title-sketch"></div>
-              <div class="editorial-subtitle-sketch"></div>
-              <div class="editorial-buttons-row">
-                <div class="btn-mockup-primary">
-                  <span>Explorar Trabalhos</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
-                </div>
-                <div class="btn-mockup-secondary">Sobre Mim</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- Footer Navigation -->
-    <footer class="footer-bar">
-      <div class="footer-left">
-        <strong>André Correia</strong> — Portefólio Pessoal No-Code | UFCD 10947 (IEFP Setúbal)
-      </div>
-      <div style="display: flex; gap: 12px;">
-        <a href="/sitemap.html" class="btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-          Ver Sitemap
-        </a>
-        <a href="/ui-kit.html" class="btn-emerald">
-          Avançar para o UI Kit
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <div class="copy-kit-bar">
+        <button class="btn-action-copy" onclick="copyFullBoardData()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+          Copiar Todo o Conteúdo para Colar no Figma
+        </button>
+        <a href="/ui-kit.html" class="btn-action-ui">
+          Ver o UI Kit / Guia de Estilos Completo →
         </a>
       </div>
-    </footer>
+    </section>
 
+    <!-- SECÇÃO 1: POST-ITS CONCEITUAIS (FIGJAM STICKY NOTES) -->
+    <div class="canvas-section-title">
+      <span>01. NOTAS ADESIVAS — PALAVRAS-CHAVE & PERSONALIDADE DA MARCA</span>
+    </div>
+
+    <div class="mood-masonry-grid">
+      
+      <!-- Post-it 1: Clareza Editorial -->
+      <div class="sticky-note note-yellow col-span-3">
+        <div class="washi-tape"></div>
+        <div>
+          <div class="note-author">CONCEITO CENTRAL</div>
+          <div class="note-text">Clareza Editorial & Espaço Negativo</div>
+        </div>
+        <div class="note-footer">Sem poluição visual. Cada palavra tem peso.</div>
+      </div>
+
+      <!-- Post-it 2: Rigor Técnico -->
+      <div class="sticky-note note-emerald col-span-3">
+        <div class="washi-tape"></div>
+        <div>
+          <div class="note-author">ENGENHARIA</div>
+          <div class="note-text">Rigor Técnico & Automações Reais</div>
+        </div>
+        <div class="note-footer">Foco em métricas, latência baixa e ROI.</div>
+      </div>
+
+      <!-- Post-it 3: Minimalismo Moderno -->
+      <div class="sticky-note note-blue col-span-3">
+        <div class="washi-tape"></div>
+        <div>
+          <div class="note-author">ESTÉTICA SUÍÇA</div>
+          <div class="note-text">Minimalismo Contemporâneo</div>
+        </div>
+        <div class="note-footer">Grelha de 8px, tipografia sem serifa expressiva.</div>
+      </div>
+
+      <!-- Post-it 4: Regra da Formadora -->
+      <div class="sticky-note note-peach col-span-3">
+        <div class="washi-tape"></div>
+        <div>
+          <div class="note-author">REGRA DE OURO (IEFP)</div>
+          <div class="note-text">Consistência Transversal em 5 Páginas</div>
+        </div>
+        <div class="note-footer">Mesmos botões, raios e cores na Home e restantes.</div>
+      </div>
+
+    </div>
+
+    <!-- SECÇÃO 2: REFERÊNCIAS VISUAIS & INSPIRAÇÃO DE PORTEFÓLIOS REAIS NO FRAMER -->
+    <div class="canvas-section-title">
+      <span>02. REFERÊNCIAS REAIS DE PORTEFÓLIOS DE IA & AUTOMAÇÃO NO FRAMER (BENCHMARKING)</span>
+    </div>
+
+    <div class="mood-masonry-grid">
+
+      <!-- Referência 1: AIVOR (Portefólio de IA & Agentes) -->
+      <div class="polaroid-card col-span-4" style="transform: rotate(-1deg);">
+        <div class="washi-tape"></div>
+        <div class="polaroid-img-wrapper">
+          <img src="https://framerusercontent.com/images/xQrsw9Y52ZNwiGNFGGfyk1oAU30.jpg" alt="Portefólio AIVOR - Engenharia de IA no Framer" loading="lazy">
+        </div>
+        <div class="polaroid-caption">
+          <div class="polaroid-title">AIVOR — Portefólio AI &amp; Agentes</div>
+          <p class="polaroid-desc">Referência direta para o portefólio de André: layout focado em arquitetura de agentes, modelos de IA, APIs e timeline profissional.</p>
+          <span class="polaroid-tag">#AIEngineer #FramerPortfolio</span>
+        </div>
+      </div>
+
+      <!-- Referência 2: AUTOMATEO (Sistemas de Automação & Workflows) -->
+      <div class="polaroid-card col-span-4" style="transform: rotate(1.2deg);">
+        <div class="washi-tape"></div>
+        <div class="polaroid-img-wrapper">
+          <img src="https://framerusercontent.com/images/p9p0X6V00ivF4cxYLeEOhZmTAJ4.png" alt="Portefólio Automateo - Automações no Framer" loading="lazy">
+        </div>
+        <div class="polaroid-caption">
+          <div class="polaroid-title">AUTOMATEO — Automação &amp; Atendentes</div>
+          <p class="polaroid-desc">Inspiração para os Estudos de Caso (Atendente de Voz e WhatsApp): cartões Bento Grid focados em métricas reais e eficiência de processos.</p>
+          <span class="polaroid-tag">#Automação #AtendenteIA #Voz</span>
+        </div>
+      </div>
+
+      <!-- Referência 3: AUTOMATIX (Sistemas Técnicos & Soluções No-Code) -->
+      <div class="polaroid-card col-span-4" style="transform: rotate(-1.5deg);">
+        <div class="washi-tape"></div>
+        <div class="polaroid-img-wrapper">
+          <img src="https://framerusercontent.com/images/fAbI8oPl55SkbBOXGhrQpnwpL8.png" alt="Portefólio Automatix - Soluções No-Code no Framer" loading="lazy">
+        </div>
+        <div class="polaroid-caption">
+          <div class="polaroid-title">AUTOMATIX — Engenharia &amp; Integrações</div>
+          <p class="polaroid-desc">Inspiração para a secção Explorar e Estudos de Caso: arquitetura clara de cartões, badges de stack técnica e chamadas para ação diretas.</p>
+          <span class="polaroid-tag">#NoCode #Sistemas #EstudosDeCaso</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECÇÃO 3: PALETA DE CORES PANTONE CHIPS -->
+    <div class="canvas-section-title">
+      <span>03. PALETA CROMÁTICA DE REFERÊNCIA (PANTONE STYLE CHIPS)</span>
+    </div>
+
+    <div class="color-chip-group" style="margin-bottom: 48px;">
+      
+      <!-- Verde Esmeralda -->
+      <div class="pantone-chip">
+        <div class="pantone-color-block" style="background-color: #10b981;"></div>
+        <div class="pantone-meta">
+          <div class="pantone-name">EMERALD ACCENT</div>
+          <div class="pantone-hex">#10b981</div>
+          <div class="pantone-role">Botão Primário & Destaque</div>
+        </div>
+      </div>
+
+      <!-- Esmeralda Dark -->
+      <div class="pantone-chip">
+        <div class="pantone-color-block" style="background-color: #059669;"></div>
+        <div class="pantone-meta">
+          <div class="pantone-name">EMERALD DEEP</div>
+          <div class="pantone-hex">#059669</div>
+          <div class="pantone-role">Hover & Interatividade</div>
+        </div>
+      </div>
+
+      <!-- Cinza Ardósia -->
+      <div class="pantone-chip">
+        <div class="pantone-color-block" style="background-color: #0f172a;"></div>
+        <div class="pantone-meta">
+          <div class="pantone-name">SLATE OBSIDIAN</div>
+          <div class="pantone-hex">#0f172a</div>
+          <div class="pantone-role">Tipografia Principal (H1/H2)</div>
+        </div>
+      </div>
+
+      <!-- Cinza Médio -->
+      <div class="pantone-chip">
+        <div class="pantone-color-block" style="background-color: #64748b;"></div>
+        <div class="pantone-meta">
+          <div class="pantone-name">SLATE MUTED</div>
+          <div class="pantone-hex">#64748b</div>
+          <div class="pantone-role">Corpo de Texto & Metadados</div>
+        </div>
+      </div>
+
+      <!-- Cinza Neutro -->
+      <div class="pantone-chip">
+        <div class="pantone-color-block" style="background-color: #f1f5f9; border-bottom: 1px solid #e2e8f0;"></div>
+        <div class="pantone-meta">
+          <div class="pantone-name">NEUTRAL CANVAS</div>
+          <div class="pantone-hex">#f1f5f9</div>
+          <div class="pantone-role">Botão Secundário & Fundo</div>
+        </div>
+      </div>
+
+      <!-- Branco Puro -->
+      <div class="pantone-chip">
+        <div class="pantone-color-block" style="background-color: #ffffff; border-bottom: 1px solid #e2e8f0;"></div>
+        <div class="pantone-meta">
+          <div class="pantone-name">PURE WHITE</div>
+          <div class="pantone-hex">#ffffff</div>
+          <div class="pantone-role">Fundo Principal & Cards</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECÇÃO 4: TIPOGRAFIA DE REFERÊNCIA (POSTER EDITORIAL SUÍÇO) -->
+    <div class="canvas-section-title">
+      <span>04. TIPOGRAFIA & CARÁTER EDITORIAL (SWISS POSTER SPECIMEN)</span>
+    </div>
+
+    <div class="mood-masonry-grid">
+      
+      <div class="swiss-poster-frame col-span-8">
+        <div class="swiss-header-meta">
+          <span>PLUS JAKARTA SANS + INTER</span>
+          <span>SISTEMA TIPOGRÁFICO DE ALTA LEGIBILIDADE</span>
+        </div>
+        <div class="swiss-specimen-large">
+          ARQUITETURA NO-CODE <span>& IA DE VOZ</span>
+        </div>
+        <p class="swiss-specimen-body">
+          Tipografia geométrica com proporções generosas na abertura de curvas. A combinação de <strong>Plus Jakarta Sans</strong> para títulos expressivos com <strong>Inter</strong> para corpos de texto editorial assegura conforto máximo na leitura em telas de qualquer resolução.
+        </p>
+        <div class="swiss-specimen-mono">
+          FONT-FAMILY: 'Plus Jakarta Sans', 'Inter', 'JetBrains Mono'
+        </div>
+      </div>
+
+      <!-- Post-it Adicional de Tom de Voz -->
+      <div class="sticky-note note-purple col-span-4" style="justify-content: center; min-height: 280px;">
+        <div class="washi-tape"></div>
+        <div>
+          <div class="note-author">TOM DE VOZ EDITORIAL</div>
+          <div class="note-text" style="font-size: 1.6rem;">
+            "Sóbrio, direto, orientado a dados e sem termos vazios de marketing."
+          </div>
+        </div>
+        <div class="note-footer" style="margin-top: 16px;">
+          André Correia • Portefólio Pessoal
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FIGJAM FLOATING BOTTOM TOOLBAR -->
+  <nav class="figjam-toolbar">
+    <button class="tool-btn active" title="Selecionar (V)" onclick="selectTool(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 3 7 18 3-7 7-3L3 3z"/></svg>
+    </button>
+    <button class="tool-btn" title="Mão / Navegar (H)" onclick="selectTool(this)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v6M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8M6 14v-1a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v3a9 9 0 0 0 9 9h2a9 9 0 0 0 9-9v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2"/></svg>
+    </button>
+    <div class="toolbar-divider"></div>
+    <button class="tool-btn" title="Post-it (S)" onclick="copyStickyNotes()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    </button>
+    <button class="tool-btn" title="Copiar Paleta" onclick="copyPalette()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0 0 20v-20z"/></svg>
+    </button>
+    <div class="toolbar-divider"></div>
+    <button class="tool-btn" title="Copiar Todo o Kit" onclick="copyFullBoardData()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+    </button>
+  </nav>
+
+  <!-- Toast Notification -->
+  <div id="copy-toast">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-msg">Material copiado para a área de transferência!</span>
   </div>
 
+  <script>
+    function showToast(msg) {
+      const toast = document.getElementById('copy-toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    function selectTool(btn) {
+      document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    const MOODBOARD_DATA = `=== MOODBOARD & DIREÇÃO VISUAL — ANDRÉ CORREIA (UFCD 10947 IEFP) ===
+
+[1. PALAVRAS-CHAVE & PERSONALIDADE]
+- Clareza Editorial & Espaço Negativo (Sem ruído visual)
+- Rigor Técnico & Automações Reais (Foco em métricas e ROI)
+- Minimalismo Contemporâneo (Grelha de 8px e tipografia expressiva)
+- Confiança Institucional & Elegância Funcional
+- Consistência Transversal (Regra de botões e raios idênticos em todas as 5 páginas)
+
+[2. PALETA CROMÁTICA / COLOR TOKENS]
+- Verde Esmeralda: #10b981 (Acento, Call to Action, Botão Primário)
+- Esmeralda Dark: #059669 (Hover, Interatividade)
+- Esmeralda Soft: #ecfdf5 (Badges de Categoria, Tags)
+- Cinza Ardósia: #0f172a (Tipografia Principal, H1, H2)
+- Ardósia Médio: #64748b (Texto de Apoio, Parágrafos secundários)
+- Cinza Neutro: #f1f5f9 (Fundo secundário, Botão Secundário)
+- Branco Puro: #ffffff (Fundo principal, Cartões de Projeto)
+
+[3. SISTEMA TIPOGRÁFICO]
+- Display / Títulos: Plus Jakarta Sans (800 Bold / ExtraBold)
+- Corpo Editorial: Inter (400 Regular / 500 Medium)
+- Código & Badges: JetBrains Mono (500 Medium)
+
+[4. REFERÊNCIAS REAIS DE PORTEFÓLIOS NO FRAMER (BENCHMARKING)]
+- AIVOR (Engenharia de IA & Agentes): https://aivor.framer.website/ (Preview: https://framerusercontent.com/images/xQrsw9Y52ZNwiGNFGGfyk1oAU30.jpg)
+- AUTOMATEO (Automações, Atendentes & Workflows): https://automateo.framer.website/ (Preview: https://framerusercontent.com/images/p9p0X6V00ivF4cxYLeEOhZmTAJ4.png)
+- AUTOMATIX (Sistemas Técnicos & Soluções No-Code): https://automatix.framer.website/ (Preview: https://framerusercontent.com/images/fAbI8oPl55SkbBOXGhrQpnwpL8.png)`;
+
+    function copyFullBoardData() {
+      navigator.clipboard.writeText(MOODBOARD_DATA).then(() => {
+        showToast('✓ Todo o conteúdo copiado para colar no Figma!');
+      });
+    }
+
+    function copyStickyNotes() {
+      const notes = `POST-ITS PARA O FIGMA:
+1. Clareza Editorial & Espaço Negativo
+2. Rigor Técnico & Automações Reais
+3. Minimalismo Contemporâneo
+4. Consistência Transversal em 5 Páginas
+5. Tom de Voz: Sóbrio, direto, orientado a dados`;
+      navigator.clipboard.writeText(notes).then(() => {
+        showToast('✓ Textos dos Post-its copiados!');
+      });
+    }
+
+    function copyPalette() {
+      const palette = `PALETA DE CORES:
+- Primary: #10b981
+- Hover: #059669
+- Light: #ecfdf5
+- Text Main: #0f172a
+- Text Muted: #64748b
+- Surface: #f1f5f9
+- Background: #ffffff`;
+      navigator.clipboard.writeText(palette).then(() => {
+        showToast('✓ Códigos Hex da paleta copiados!');
+      });
+    }
+  </script>
 </body>
 </html>
