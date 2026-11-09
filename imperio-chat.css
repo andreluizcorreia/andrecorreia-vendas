@@ -1,0 +1,15 @@
+.imperio-chat{position:fixed;right:1rem;bottom:1rem;z-index:9999;font:15px/1.45 system-ui,sans-serif;color:#f3f4f6}
+.imperio-chat button,.imperio-chat-book{cursor:pointer;background:#225c47;color:white;border:1px solid #74bc9b;border-radius:8px;padding:.6rem .8rem;font:inherit}
+.imperio-chat section{position:absolute;right:0;bottom:3.5rem;width:min(365px,calc(100vw - 2rem));background:#17221e;border:1px solid #426053;border-radius:12px;box-shadow:0 8px 30px #0008;overflow:hidden}
+.imperio-chat section[hidden]{display:none}
+.imperio-chat header,.imperio-chat form{display:flex;align-items:center;gap:.5rem;padding:.7rem}
+.imperio-chat header{justify-content:space-between}
+.imperio-chat-log{overflow:auto;max-height:min(42vh,310px);padding:.6rem}
+.imperio-chat-log p{margin:.35rem 0;padding:.55rem .65rem;border-radius:8px;background:#25372f;white-space:pre-wrap;overflow-wrap:anywhere}
+.imperio-chat-log .visitor{margin-left:15%;background:#225c47}
+.imperio-chat input{min-width:0;flex:1;padding:.55rem;border:1px solid #74bc9b;border-radius:6px;background:#fff;color:#17221e;font:inherit}
+.imperio-chat-notice{font-size:.75rem;padding:0 .7rem;margin:.3rem 0;color:#dce7df}
+.imperio-chat-notice a{color:#a4f1c9}
+.imperio-chat-book{display:block;text-align:center;margin:0 .7rem .7rem;text-decoration:none}
+.imperio-chat-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.imperio-chat button:disabled{opacity:.6;cursor:wait}
